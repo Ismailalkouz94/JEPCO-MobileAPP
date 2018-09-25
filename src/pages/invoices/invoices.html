@@ -1,0 +1,142 @@
+<!--
+  Generated template for the InvoicesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ 'IvoiceMonth' | translate }} {{ bill.transDate.monthValue }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="text-align: center;">
+
+  <div style="height: 4%"></div>
+  <div class="div">
+    <ion-row>
+      <p class="ppp">{{ 'c_UserNameOF' | translate }} {{ subscriber.mConsumerName }}</p>
+    </ion-row>
+    <ion-row>
+      <p class="ppp">{{ 'c_CN' | translate }} {{ subscriber.mMeterNo }}</p>
+    </ion-row>
+    <ion-row>
+      <p class="ppp">{{ 'c_FNO' | translate }} {{ this.getUser().fileNumber | slice:0:2}}/{{ this.getUser().fileNumber | slice:2:7}}/{{ this.getUser().fileNumber | slice:7:13}}</p>
+    </ion-row>
+    <ion-row>
+      <p class="ppp">{{ 'currentBalance' | translate }} {{ subscriber.mConBalance }}</p>
+    </ion-row>
+  </div>
+  <div style="height: 3%"></div>
+
+  <div style="background-color:  #e6e6e6; margin-top: 2px">
+      <ion-row class="roww">
+        <ion-col col-6>
+          <p class="pp">{{ 'billNumber' | translate }}</p>
+        </ion-col>
+        <ion-col col-1>
+          <p class="pp"></p>
+        </ion-col>
+        <ion-col col-5 class="colCas">
+          <p class="pp" style="color: white">{{ bill.billhfPK.hBillNo }}</p>
+        </ion-col>
+      </ion-row>
+    </div>
+
+
+  <div style="background-color:  #e6e6e6; margin-top: 2px">
+    <ion-row class="roww">
+      <ion-col col-6>
+        <p class="pp">{{ 'previousReading' | translate }}</p>
+      </ion-col>
+      <ion-col col-1>
+        <p class="pp"></p>
+      </ion-col>
+      <ion-col col-5 class="colCas">
+        <p class="pp" style="color: white">{{ bill.previousRead }}</p>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div style="background-color:  #e6e6e6; margin-top: 2px">
+    <ion-row class="roww">
+      <ion-col col-6>
+        <p class="pp">{{ 'CurrentReading' | translate }}</p>
+      </ion-col>
+      <ion-col col-1>
+        <p class="pp"></p>
+      </ion-col>
+      <ion-col col-5 class="colCas">
+        <p class="pp" style="color: white">{{ bill.currentRead }}</p>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div style="background-color:  #e6e6e6; margin-top: 2px">
+    <ion-row class="roww">
+      <ion-col col-6>
+        <p class="pp">{{ 'DateReading' | translate }}</p>
+      </ion-col>
+      <ion-col col-1>
+        <p class="pp"></p>
+      </ion-col>
+      <ion-col col-5 class="colCas">
+        <p class="pp" style="color: white">{{ bill.currentReadDate.year }}-{{ bill.currentReadDate.monthValue }}-{{ bill.currentReadDate.dayOfMonth }}</p>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div style="background-color:  #e6e6e6; margin-top: 2px">
+    <ion-row class="roww">
+      <ion-col col-6>
+        <p class="pp">{{ 'QuantityConsumption' | translate }}</p>
+      </ion-col>
+      <ion-col col-1>
+        <p class="pp"></p>
+      </ion-col>
+      <ion-col col-5 class="colCas">
+        <p class="pp" style="color: white">{{ bill.consumeValue }}</p>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div style="background-color:  #e6e6e6; margin-top: 2px">
+    <ion-row class="roww">
+      <ion-col col-6>
+        <p class="pp">{{ 'Invoice value' | translate }}</p>
+      </ion-col>
+      <ion-col col-1>
+        <p class="pp"></p>
+      </ion-col>
+      <ion-col col-5 class="colCas">
+        <p class="pp" style="color: white">{{ bill.billReqValue }}</p>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div style="background-color:  #e6e6e6; margin-top: 2px">
+    <ion-row class="roww">
+      <ion-col col-6>
+        <p class="pp">{{ 'History of oxidation' | translate }}</p>
+      </ion-col>
+      <ion-col col-1>
+        <p class="pp"></p>
+      </ion-col>
+      <ion-col col-5 class="colCas">
+        <ng-container *ngIf="bill.payDate;then PAYED;else NONEPAYED"></ng-container>
+        <ng-template #PAYED><p class="pp" style="color: white">{{ bill.payDate.year }}-{{ bill.payDate.monthValue }}-{{ bill.payDate.dayOfMonth }}</p></ng-template>
+        <ng-template #NONEPAYED><p class="pp" style="color: #FCCE00;">{{ "None_Payed" | translate }}</p></ng-template>
+      </ion-col>
+    </ion-row>
+  </div>
+
+
+  <div style="background-color:  #e6e6e6; width: 100%;border-bottom-left-radius: 12px;border-bottom-right-radius: 12px; height: 20px;  margin-top: 2px">
+      <ion-row>
+          <p class="pp"></p>
+      </ion-row>
+    </div>
+</ion-content>

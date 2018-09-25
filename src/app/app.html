@@ -1,0 +1,61 @@
+<!-- <ion-menu id="myMenu" [content]="content">
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-title><ion-icon name="options"></ion-icon>      {{ 'menu' | translate }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <div class="imgcontainer">
+      <img src="assets/imgs/22491993_1493922503976779_3400366314292900419_n.jpg" alt="Avatar" class="avatar">
+    </div>
+    <div>
+      <ion-list>
+        <ion-item style="background-color: #732002" (click)="goToHomePage()" menuClose="left">
+          <ion-label style="color: white"><ion-icon name="home"></ion-icon>      {{ 'home' | translate }}</ion-label>
+        </ion-item>
+
+        <ion-item style="background-color: #732002">
+
+          <ion-label style="color: white"><ion-icon name="construct"></ion-icon>      {{ 'lang' | translate }}</ion-label>
+          <ion-select [(ngModel)]="lang1" interface="popover" (ionChange)="switchLanguage1()" style="color: white">
+            <ion-option value="en">English</ion-option>
+            <ion-option value="ar">عربي</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div style="position: fixed; bottom: 0; margin-left: 6%; margin-right: 6%;">
+      <ion-row>
+        <ion-col col-3>
+          <button ion-fab style="background-color: #022601">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </button>
+        </ion-col>
+
+        <ion-col col-3>
+          <button ion-fab style="background-color: #f2b035">
+            <ion-icon name="logo-twitter"></ion-icon>
+          </button>
+        </ion-col>
+
+        <ion-col col-3>
+          <button ion-fab style="background-color: #3e5902">
+            <ion-icon name="logo-vimeo"></ion-icon>
+          </button>
+        </ion-col>
+
+        <ion-col col-3>
+          <button ion-fab style="background-color: #f2811d">
+            <ion-icon name="logo-googleplus"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-content>
+
+</ion-menu>
+
+<!- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

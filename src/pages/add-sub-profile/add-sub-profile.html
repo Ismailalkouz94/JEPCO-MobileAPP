@@ -1,0 +1,80 @@
+<!--
+  Generated template for the AddSubProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar mode="md">
+    <ion-title> {{ 'AddSub' | translate }} </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div style="height: 10%">
+  </div>
+
+
+  <form [formGroup]="AddSubForm" (ngSubmit)="submitForm()">
+    
+    <div class="div">
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label floating> {{ 'Nickname' | translate }}</ion-label>
+            <ion-input type="text" formControlName="alias" maxlength="14"></ion-input>
+          </ion-item>
+          <div class="error-message" *ngIf="(AddSubForm.get('alias').errors) && ((AddSubForm.get('alias').dirty || AddSubForm.get('alias').touched))">
+            <div *ngIf="AddSubForm.get('alias').hasError('required')">{{"Nickname" | translate}}</div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div class="div">
+      <ion-row>
+        <ion-col col-6>
+          <ion-item>
+            <ion-label floating> {{ 'reg_fileNum' | translate }}</ion-label>
+            <ion-input type="tel" formControlName="fileNum" maxlength="6" #c (keyup)="keytab(c , 6 , '' , b)"></ion-input>
+          </ion-item>
+          <div class="error-message" *ngIf="(AddSubForm.get('fileNum').errors) && ((AddSubForm.get('fileNum').dirty || AddSubForm.get('fileNum').touched))">
+            <div *ngIf="AddSubForm.get('fileNum').hasError('required')">{{"reg_fileNumR" | translate}}</div>
+          </div>
+        </ion-col>
+        <ion-col col-4>
+          <ion-item>
+            <ion-label floating>/</ion-label>
+            <ion-input type="tel" formControlName="fileNum1" maxlength="5"  #b (keyup)="keytab(c , 5 , 1 , a)"></ion-input>
+          </ion-item>
+          <div class="error-message" *ngIf="(AddSubForm.get('fileNum1').errors) && ((AddSubForm.get('fileNum1').dirty || AddSubForm.get('fileNum1').touched))">
+            <div *ngIf="AddSubForm.get('fileNum1').hasError('required')"></div>
+          </div>
+        </ion-col>
+        <ion-col col-2>
+          <ion-item>
+            <ion-label floating>/</ion-label>
+            <ion-input type="tel" formControlName="fileNum2" maxlength="2" #a (keyup)="keytab(b , 2 , 2 , a)"></ion-input>
+          </ion-item>
+          <div class="error-message" *ngIf="(AddSubForm.get('fileNum2').errors) && ((AddSubForm.get('fileNum2').dirty || AddSubForm.get('fileNum2').touched))">
+            <div *ngIf="AddSubForm.get('fileNum2').hasError('required')"></div>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-icon name="alert" style="font-size: 2.2em;" (click)="openImage()"></ion-icon>
+    </div>
+
+
+    <div style="margin-top: 10%; text-align: center;">
+      <button type="submit" ion-button class="button">
+        {{ 'Add' | translate }}
+      </button>
+    </div>
+  </form>
+
+
+
+</ion-content>

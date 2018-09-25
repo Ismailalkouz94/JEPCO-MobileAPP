@@ -1,0 +1,331 @@
+
+@font-face{
+  font-family: 'HACEN';
+  src:url('../assets/fonts/BAHIJ JANNA-REGULAR.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face{
+  font-family: 'digital';
+  src:url('../assets/fonts/digital-7.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+ion-content {
+    // background-image: url('../assets/imgs/^76015826C53F5F10A0F3A951B5AA0BFE2DE61FD2D56ACA3A16^pimgpsh_fullsize_distr.png') !important;
+    // background-repeat: no-repeat !important;
+    // height: 100% !important; 
+    // background-position: center !important;
+    // background-size: cover !important;
+    font-family: HACEN !important;
+    
+    background-color: #f2f2f2;    
+    color: #315a68 !important;
+}
+
+ion-header {
+  font-family: HACEN !important;
+  color: white !important;
+}
+
+
+.toolbar-title{
+  padding: 0px 0px !important;
+}
+// ion-fab[middle]{
+//   margin-top: -20% !important;
+// }
+// ion-fab-list[side=left] {
+//   // margin: -40px 61px;
+//   margin: -90px 75px;
+// }
+
+// ion-fab-list[side=right] {
+//   // margin: -40px 61px;
+//   margin: 40px 61px;
+// }
+
+// ion-fab-list[side=bottom] {
+//   margin: 80px -100px;
+// }
+
+// ion-fab-list[side=top] {
+//   margin: 60px 90px;
+// } 
+// html[dir="rtl"] ion-fab-list[side=right] {
+//   margin: 65px 47px 40px -110px;
+// }
+// html[dir="rtl"] ion-fab-list[side=left] {
+//   margin: -96px -137px -98px 126px;
+// }
+// ion-fab-list {
+//   // margin: 120px -20px 55px -20px;
+//   margin: 120px -20px 55px -20px;
+// }
+
+// .headerClass{
+//   background-color: rgba(255,255,255, 0.7);;
+//   height: 10% ; 
+//   left: 0;
+//   top: 0;
+//   // position: absolute;
+//   z-index: 10;
+//   display: block;
+//   width: 100%;
+//   overflow: hidden;
+
+//   padding: 1%;
+//   // opacity: 0.2;
+
+// }
+
+// .headerClass img {
+//   float: right;
+//   width: 55px;
+//   height: 55px;
+//   top: 0;
+// }
+
+// .headerClass h2 {
+//   position: relative;
+//   right: 12px;
+//   color: white;
+// }
+
+
+.button:hover:not(.disable-hover) {
+  background-color: #282a2c !important;
+}
+
+.toolbar-background {
+  background-color: #315a68 !important;
+  
+}
+.imgClass {
+  float: right !important;
+  width: 62px !important;
+  height: 56px !important;
+  top: 0;
+}
+
+.imgClass1 {
+  float: left !important;
+  width: 36px !important;
+  height: 48px !important;
+  top: 0;
+}
+
+.h2Class {
+  position: relative !important;
+  // right: 12px !important;
+  // left: 12px !important;
+  text-align: center !important;
+  color: white !important;
+}
+
+.h2Class1 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  position: relative !important;
+  // right: 12px !important;
+  // left: 12px !important;
+  text-align: center !important;
+  color: white !important;
+}
+
+.h3Class {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  position: relative !important;
+  // right: 12px !important;
+  // left: 12px !important;
+  text-align: center !important;
+  color: white !important;
+}
+
+
+
+.bar-button::after {
+width: 62px !important;
+height: 56px !important;
+margin-top: 7px !important;
+}
+
+
+.bar-button-menutoggle ion-icon {
+  font-size: 5.4rem !important;
+}
+
+//menu button color
+.bar-button-default, .bar-button-clear-default, .bar-button-default {
+  color: white;
+}
+
+
+//menu color
+.toolbar-title {
+  color: white;
+}
+
+//img menu
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+
+//menu item between home and other
+.item {
+  padding-right: 16px;
+}
+
+//button
+.button{
+  background-color: #315a68;
+  border-radius: 6px;
+  height: calc(1vw + 7.8vmin);
+  font-size: calc(1vw + 2.8vmin);
+}
+
+//input css
+.item-input ion-input {
+  background-color: #e6e6e6;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  margin-right: 5px;
+  margin-left: 5px;
+  color: #ad5c44;
+  // height: calc(1vw + 7.0vmin);
+  // font-size: calc(1vw + 2.8vmin);
+
+}
+
+.item-inner {
+  padding-right: 0px!important;
+  border-bottom: 1px solid #dedede;
+}
+
+
+.item.item-input.input-has-focus .item-inner {
+  border-bottom-color: #315a68 !important;
+
+  
+
+  ion-label{
+      color: #315a68 !important;
+      // font-size: calc(1vw + 2.8vmin);
+  }
+
+
+
+
+}
+
+
+//input lable 
+html[dir="ltr"] .label[floating], html[dir="ltr"] ion-label {
+   
+    transform-origin: left top !important;
+    // height: calc(1vw + 5.4vmin);
+    // font-size: calc(1vw + 2.8vmin); 
+ }
+
+ html[dir="rtl"] .label[floating] , html[dir="rtl"] ion-label{
+   transform-origin: right top !important;
+  //  height: calc(1vw +  5.4vmin);
+  //  font-size: calc(1vw + 2.8vmin);
+
+ }
+
+
+.item-label-stacked .text-input, .item-label-floating .text-input {
+  margin-left: 2px;
+  margin-right: 2px;
+  
+}
+
+
+
+.item-label-floating .text-input {
+  // font-size: calc(1vw + 2.8vmin);
+  // height: calc(1vw + 5.4vmin);
+
+}
+.item-label-floating .text-input{
+  height: calc(1vw + 5.9vmin);
+  font-size: calc(1vw + 4.9vmin);
+}
+
+.item-input ion-input {
+  height: calc(1vw + 11vmin);
+}
+
+.error-message
+{
+ color: color($colors, danger);
+//  font-size: 10px;
+font-size: calc(1vw + 2.0vmin);
+//  font-weight: 500;
+ line-height: 1.6rem;
+ position: relative;
+//  padding-left: 22px;
+//  margin-bottom: 10px;
+margin-top: 1%;
+
+
+ &:first-child
+ {
+  margin-top: 10px;
+ }
+
+//  &::before
+//  {
+//   font-family: "Ionicons";
+//   content: "\f19f";
+//   font-size: 16px;
+//   width: 16px;
+//   height: 16px;
+//   text-align: center;
+//   position: absolute;
+//   left: 0px;
+//  }
+}
+
+//alert css
+.alert .alert-button {
+  color: #315a68 !important;
+}
+
+// ios toolbar
+// .toolbar-content-ios{
+//   -webkit-box-flex: 1 !important;
+//   flex: 1 !important;
+//   -webkit-box-ordinal-group: 4 !important;
+//   order: 3 !important;
+//   min-width: 0 !important;
+//   max-width: 100% !important;
+// }
+
+// .toolbar-ios ion-title{
+//   margin-top: 10px;
+//   padding: 5px 0 0;
+//   padding-left: 36px
+// }
+
+
+.button-ios {
+   height: calc(1vw + 7.8vmin);
+}
+
+.button.activated{
+  background-color: #315a68;
+}
+
+
+

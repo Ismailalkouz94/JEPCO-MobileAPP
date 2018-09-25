@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>  {{this.getCenterName().name}}  </ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="viewCtrl.dismiss()">
+        {{'Cancel' | translate}}
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div #map id="map"></div>
+</ion-content>

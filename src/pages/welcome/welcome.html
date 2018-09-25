@@ -1,0 +1,28 @@
+<ion-content>
+  <div class="imgDiv">
+    <img src="assets/imgs/jepco logo-01.png" class="forImg"/>
+  </div>
+  <div class="textDiv">
+    <h3 class="text1" style="font-weight: bold; padding-top: 10%;font-size: calc(1vw + 5.5vmin);">{{ 'welc_text1' | translate }} </h3>
+
+    <h4 class="text1" style="font-size: calc(1vw + 5.2vmin);">{{ 'welc_text2' | translate }} </h4>
+  </div>
+ 
+  <div class="actionDiv">
+    <div style="width: 80%; display: inline-flex; padding-bottom: 15px;margin-top: 7px;">
+      <ion-segment mode="md" [(ngModel)]="lang" (ionChange)="switchLanguage()">
+        <ion-segment-button value="en">
+          English
+        </ion-segment-button>
+        <ion-segment-button value="ar">
+          عربي
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+ 
+
+    <button ion-button  (click)="nextAction()" style="width: 80%;">
+      {{ 'next' | translate }}
+    </button>
+  </div>
+</ion-content>

@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+        {{ 'h_Inquire' | translate }}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding style="text-align: center;">
+  <div style="height: 4%"></div>
+  <div class="div">
+    <ion-row>
+      <p class="pp">{{ 'c_UserNameOF' | translate }} {{ subscriber.mConsumerName }}</p>
+    </ion-row>
+    <ion-row>
+      <p class="pp">{{ 'c_CN' | translate }} {{ subscriber.mMeterNo }}</p>
+    </ion-row>
+    <ion-row>
+      <p class="pp">{{ 'c_FNO' | translate }} {{ this.getUser().fileNumber | slice:0:2}}/{{ this.getUser().fileNumber | slice:2:7}}/{{ this.getUser().fileNumber | slice:7:13}}</p>
+    </ion-row>
+    <ion-row>
+      <p class="pp">{{ 'currentBalance' | translate }} {{ subscriber.mConBalance }}</p>
+    </ion-row>
+  </div>
+ 
+  <div col-12 style="margin-top: 10px;margin-bottom: 10px">
+    <p class="fontt">{{ 'prevIvoices' | translate }}</p>
+  </div>
+
+  <div style="background-color:  #e6e6e6; margin-top: 2px" *ngFor="let bill of subscriber.bills">
+    <ion-row (click)="goToInvoicesPage(bill)">
+      <ion-col col-3>
+        <p class="ppp">{{ bill.transDate.monthValue }}-{{ bill.transDate.year }}</p>
+      </ion-col>
+      <ion-col col-5>
+        <p class="ppp">{{ bill.billReqValue }} {{ "JOD" | translate }}</p>
+      </ion-col>
+      <ion-col col-4>
+          <ng-container *ngIf="bill.payDate;then PAYED;else NONEPAYED"></ng-container>
+          <ng-template #PAYED><p class="ppp">{{ "Payed" | translate }}</p></ng-template>
+          <ng-template #NONEPAYED><p class="ppp" style="color: #ad5c44;">{{ "None_Payed" | translate }}</p></ng-template>
+      </ion-col>
+    </ion-row>
+  </div>
+
+</ion-content>

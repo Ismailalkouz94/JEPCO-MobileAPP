@@ -1,0 +1,121 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      {{ 'reg_signUp' | translate }}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div style="height: 1%">
+  </div>
+
+
+  <form [formGroup]="registrationForm" (ngSubmit)="submitForm()">
+    <div class="div">
+      <ion-row>
+        <ion-col col-6>
+          <ion-item>
+            <ion-label floating mode="md"> {{ 'reg_name' | translate }}</ion-label>
+            <ion-input type="text"  formControlName="firstName"  maxlength="15"></ion-input>
+          </ion-item>
+          <div class="error-message" *ngIf="(registrationForm.get('firstName').errors) && ((registrationForm.get('firstName').dirty || registrationForm.get('firstName').touched))">
+            <div *ngIf="registrationForm.get('firstName').hasError('required')">{{"reg_nameR" | translate}}</div>
+          </div>
+        </ion-col>
+        <ion-col col-6>
+          <ion-item>
+            <ion-label floating mode="md"> {{ 'reg_name1' | translate }}</ion-label>
+            <ion-input type="text" formControlName="lastName"  maxlength="15"></ion-input>
+          </ion-item>
+          <div class="error-message" *ngIf="(registrationForm.get('lastName').errors) && ((registrationForm.get('lastName').dirty || registrationForm.get('lastName').touched))">
+            <div *ngIf="registrationForm.get('lastName').hasError('required')">{{"reg_name1R" | translate}}</div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div class="div">
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label floating mode="md">{{ 'reg_MOB' | translate }}</ion-label>
+            <ion-input type="tel" formControlName="mobileNumber"  maxlength="15"></ion-input>
+          </ion-item>
+          <div class="error-message" *ngIf="(registrationForm.get('mobileNumber').errors) && ((registrationForm.get('mobileNumber').dirty || registrationForm.get('mobileNumber').touched))">
+            <div *ngIf="registrationForm.get('mobileNumber').hasError('required')">{{"reg_MOBR" | translate}}</div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div class="div">
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label floating mode="md"> {{ 'reg_ID' | translate }}</ion-label>
+            <ion-input type="tel" formControlName="nationalNumber"  maxlength="10"></ion-input>
+          </ion-item>
+          <div class="error-message" *ngIf="(registrationForm.get('nationalNumber').errors) && ((registrationForm.get('nationalNumber').dirty || registrationForm.get('nationalNumber').touched))">
+            <div *ngIf="registrationForm.get('nationalNumber').hasError('required')">{{"reg_IDR" | translate}}</div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div class="div">
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label floating mode="md"> {{ 'email' | translate }}</ion-label>
+            <ion-input type="text" formControlName="email" ></ion-input>
+          </ion-item>
+          <div class="error-message" *ngIf="(registrationForm.get('email').errors) && ((registrationForm.get('email').dirty || registrationForm.get('email').touched))">
+            <div *ngIf="registrationForm.get('email').hasError('required')">{{"emailR" | translate}}</div>
+            <div *ngIf="registrationForm.get('email').hasError('pattern')">{{ "Email_not_valid" | translate }}</div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div class="div">
+      <ion-row>
+        <ion-col col-6>
+          <ion-item>
+            <ion-label floating mode="md"> {{ 'reg_fileNum' | translate }}</ion-label>
+            <ion-input type="tel" formControlName="fileNum"  maxlength="6" #c (keyup)="keytab(c , 6 , '' , b)"></ion-input>
+          </ion-item>
+          <div class="error-message" *ngIf="(registrationForm.get('fileNum').errors) && ((registrationForm.get('fileNum').dirty || registrationForm.get('fileNum').touched))">
+            <div *ngIf="registrationForm.get('fileNum').hasError('required')">{{"reg_fileNumR" | translate}}</div>
+          </div>
+        </ion-col>
+        <ion-col col-4>
+          <ion-item>
+            <ion-label floating mode="md">/</ion-label>
+            <ion-input type="tel"   formControlName="fileNum1"  maxlength="5" #b (keyup)="keytab(c , 5 , 1 , a)"></ion-input>
+          </ion-item>
+          <div class="error-message" *ngIf="(registrationForm.get('fileNum1').errors) && ((registrationForm.get('fileNum1').dirty || registrationForm.get('fileNum1').touched))">
+            <div *ngIf="registrationForm.get('fileNum1').hasError('required')"></div>
+          </div>
+        </ion-col>
+        <ion-col col-2>
+          <ion-item>
+            <ion-label floating mode="md">/</ion-label>
+            <ion-input type="tel" formControlName="fileNum2"    maxlength="2" #a (keyup)="keytab(b , 2 , 2 , a)"></ion-input>
+          </ion-item>
+          <div class="error-message" *ngIf="(registrationForm.get('fileNum2').errors) && ((registrationForm.get('fileNum2').dirty || registrationForm.get('fileNum2').touched))">
+            <div *ngIf="registrationForm.get('fileNum2').hasError('required')"></div>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-icon name="alert" style="font-size: 2.2em;" (click)="openImage()"></ion-icon>
+    </div>
+
+
+    <div style="margin-top: 5%; text-align: center;">
+      <button type="submit" ion-button class="button">
+        {{ 'next' | translate }}
+      </button>
+    </div>
+  </form>
+
+
+
+</ion-content>

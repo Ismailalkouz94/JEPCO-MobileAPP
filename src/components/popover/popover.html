@@ -1,0 +1,62 @@
+<!-- Generated template for the PopoverComponent component -->
+<ion-list style="margin: 0;" >
+  <!-- <ion-list-header>
+    {{ 'menu' | translate }}
+  </ion-list-header> -->
+
+  <button ion-item (click)="goToChangeUser()" mode="md">
+    <ion-icon item-start>
+      <img src="assets/imgs/change account.svg" />
+    </ion-icon>
+    <ion-label>{{ 'ChUser' | translate }}</ion-label>
+  </button>
+
+  <button ion-item (click)="switchLanguage1()" mode="md">
+    <ion-icon item-start>
+      <img src="assets/imgs/language.svg" />
+    </ion-icon>
+    <!-- <ion-label style="color: black"> {{ 'lang' | translate }}</ion-label>
+    <ion-select [(ngModel)]="lang1" interface="action-sheet" (ionChange)="switchLanguage1()" style="color: white">
+      <ion-option value="en">English</ion-option>
+      <ion-option value="ar">عربي</ion-option>
+    </ion-select> -->
+
+    <ion-label style="color: black"> {{ Lang }}</ion-label>
+    
+
+  </button>
+
+  <button ion-item (click)="presentPopover($event)" mode="md">
+    <ion-icon item-start>
+      <img src="assets/imgs/call icon.svg" />
+    </ion-icon>
+    <ion-label style="color: black"> {{ 'P_call' | translate }}</ion-label>
+  </button>
+
+  <button ion-item (click)="exitApp()"  hideWhen="ios" mode="md">
+    <ion-icon item-start name="log-out" style="color: #315a68 ">
+    </ion-icon>
+    <ion-label style="color: black"> {{ 'logout' | translate }}</ion-label>
+  </button>
+
+
+  <div style="padding-top: 43px; padding-left: 11%; padding-right: 4%;" mode="md">
+      <ion-row>
+        <ion-col col-3 (click)="linkFacebook()">
+            <ion-icon name="logo-facebook" style="color: #315a68 ;font-size: 1.8em;"></ion-icon>
+        </ion-col>
+
+        <ion-col col-3>
+            <ion-icon name="logo-twitter" style="color: #315a68 ;font-size: 1.8em;"></ion-icon>
+        </ion-col>
+
+        <ion-col col-3>
+            <ion-icon name="logo-linkedin" style="color: #315a68 ;font-size: 1.8em;"></ion-icon>
+        </ion-col>
+
+        <ion-col col-3>
+            <ion-icon name="logo-googleplus" style="color: #315a68 ;font-size: 1.8em;"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </div>
+</ion-list>

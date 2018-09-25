@@ -1,0 +1,46 @@
+page-payment-center-list {
+
+    .div{
+        background-color: #e6e6e6;
+        padding-left: 12px;
+        padding-right: 12px;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+    }  
+    
+    .pp{
+        margin-top: 1px;
+        margin-bottom: 1px;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: calc(1vw + 2.8vmin) !important;
+        font-weight: 600;
+        color: #ad5c44;
+    }
+
+    .ppp{
+        margin-top: 1px;
+        margin-bottom: 1px;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: calc(1vw + 2.8vmin);
+
+        
+    }
+
+    .s{
+        margin-top: 3px;
+        margin-bottom: 3px;
+        color: black;
+    }
+
+    .col{
+        padding: 0px !important;
+    }
+
+    .locationIcon{
+        height: calc(1vw + 19.8vmin);
+    }
+
+
+}

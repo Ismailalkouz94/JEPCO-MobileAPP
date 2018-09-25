@@ -1,0 +1,35 @@
+page-slider {
+//     .sliderClass ion-slide img{
+//         vertical-align: bottom;
+
+//     }
+// }
+
+// ion-app.md [padding],ion-app.md [padding] .scroll-content{
+//     padding: 0 16px 0 16px;
+
+
+.slide-zoom{
+height: 100%;
+// text-align: -webkit-center;
+}
+
+.nextButt{
+    position: absolute;
+    bottom: 6%;
+    right: 2%; 
+    background-color: #f2f2f2;
+    color: #ad5c44;
+}
+
+.scroll-content {
+    background-image: url('../assets/imgs/skip2-03.png') !important;
+    background-repeat: no-repeat !important;
+    height: 100% !important; 
+    background-position: center !important;
+    background-size: cover !important;
+}
+.swiper-pagination-bullet-active {
+    background: #315a68;
+}
+}

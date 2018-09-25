@@ -1,0 +1,42 @@
+page-welcome {
+ 
+
+    .imgDiv{
+        text-align: center;
+        background-color: #315a68;
+        height: 35%;
+    }
+    .forImg{
+        height: 100%;
+        padding-top: 8%;
+        padding-bottom: 8%;
+    }
+
+    .textDiv{
+        height: 40%;
+        margin-left: 10px;
+        margin-right: 10px;
+
+
+    }
+
+    .actionDiv{
+        text-align: center;
+
+    }
+    .text1{
+        position: relative !important;
+        text-align: center !important;
+    }
+
+    .segment .segment-button.activated, .segment .segment-button.segment-activated {
+        border-color: #4a849f;
+        opacity: 1;
+}
+
+.segment .segment-button{
+    color: #4a849f;
+    font-size: calc(1vw + 2.8vmin);
+}
+
+}

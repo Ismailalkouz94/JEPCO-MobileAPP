@@ -1,0 +1,59 @@
+page-home {
+
+    .divButton {
+    // background-image: url('../assets/imgs/1.png') !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    display: block;
+    padding: 3%;
+    text-align: center;
+    background-size: contain;
+    }
+    .divButton h3 {
+        display: -webkit-inline-box;
+        margin-right: 8%;
+    }
+}
+
+
+
+.DivCenter{
+    border-radius: 6px;
+}
+
+.TextMarg{
+    margin-top: 0px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.col {
+    padding: 17px  !important;
+    padding-bottom: 0px !important;
+}
+
+.test{
+    // width: 25%;
+    // height: 25%;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+// .fab-close-active .fab-close-icon {
+//    background-color: aliceblue;
+//    background-image: url('../assets/imgs/change account.svg');
+//    font-size: 0;
+// }
+
+@media only screen and (max-width: 768px) {
+    .divButton {
+        padding-top: 14% !important;
+        padding-bottom: 10% !important;
+        }
+    .divButton h3 {
+        margin-right: 40% !important;
+    }
+  
+}

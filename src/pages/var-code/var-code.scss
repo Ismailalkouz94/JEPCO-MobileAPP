@@ -1,0 +1,30 @@
+page-var-code {
+    .div{
+        padding-right: 2%;
+        padding-left: 2%;
+      }
+
+      .item {
+        padding-right: 0px; 
+        padding-left: 0px;
+    }
+    .col {
+         padding: 2px !important; 
+    }
+
+    //input css
+.inputt {
+    background-color: #e6e6e6;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    margin-right: 5px;
+    margin-left: 5px;
+    color: #ad5c44;
+  
+  }
+
+  .text-input{
+    font-size: calc(1vw + 4.9vmin);
+    margin: 0;
+  }
+}
