@@ -181,9 +181,9 @@ export class VarCodePage {
 
 
   private markFormGroupTouched() {
-    (<any>Object).values(this.vertifyForm.controls).forEach(control => {
-      control.markAsTouched();
-    });
+    Object.keys(this.vertifyForm.controls).forEach(key => {
+      this.vertifyForm.get(key).markAsDirty();
+    });  
   }
 
 }

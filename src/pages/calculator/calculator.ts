@@ -84,9 +84,9 @@ export class CalculatorPage {
   }
 
   private markFormGroupTouched() {
-    (<any>Object).values(this.calculatForm.controls).forEach(control => {
-      control.markAsTouched();
-    });
+    Object.keys(this.calculatForm.controls).forEach(key => {
+      this.calculatForm.get(key).markAsDirty();
+    });  
   }
 
 

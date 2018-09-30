@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { TabsForCalcoulateComponent } from './tabs-for-calcoulate/tabs-for-calcoulate';
 @NgModule({
-	declarations: [TabsForCalcoulateComponent],
+	declarations: [],
 	imports: [],
-	exports: [TabsForCalcoulateComponent]
+	exports: []
 })
 export class ComponentsModule {}

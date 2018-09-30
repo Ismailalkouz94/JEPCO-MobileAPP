@@ -4,7 +4,7 @@ import { ChangeUserPage } from './change-user';
 
 @NgModule({
   declarations: [
-    ChangeUserPage,
+    // ChangeUserPage,
   ],
   imports: [
     IonicPageModule.forChild(ChangeUserPage),

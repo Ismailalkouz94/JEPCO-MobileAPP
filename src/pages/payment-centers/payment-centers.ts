@@ -52,7 +52,7 @@ export class PaymentCentersPage {
       }
     };
 
-    this.map = GoogleMaps.create('map12', mapOptions);
+    this.map = new GoogleMap('map12', mapOptions);
 
     let marker: Marker = this.map.addMarkerSync({
       title: 'Wesam Home',

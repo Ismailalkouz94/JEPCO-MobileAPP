@@ -45,7 +45,6 @@ import { CalculatorWithoutSubPage } from '../pages/calculator-without-sub/calcul
 import { TabsForCalcoulateComponent } from '../components/tabs-for-calcoulate/tabs-for-calcoulate';
 
 
-
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }

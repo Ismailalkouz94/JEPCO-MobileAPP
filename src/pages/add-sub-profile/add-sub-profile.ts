@@ -92,9 +92,9 @@ export class AddSubProfilePage {
   }
 
   private markFormGroupTouched() {
-    (<any>Object).values(this.AddSubForm.controls).forEach(control => {
-      control.markAsTouched();
-    });
+    Object.keys(this.AddSubForm.controls).forEach(key => {
+      this.AddSubForm.get(key).markAsDirty();
+    });  
   }
 
 

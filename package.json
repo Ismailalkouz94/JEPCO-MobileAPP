@@ -37,7 +37,6 @@
     "cordova-ios": "4.5.5",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-geolocation": "^4.0.1",
-    "cordova-plugin-googlemaps": "^2.3.4",
     "cordova-plugin-googlemaps-sdk": "git+https://github.com/mapsplugin/cordova-plugin-googlemaps-sdk.git#2.7.0",
     "cordova-plugin-inappbrowser": "^3.0.0",
     "cordova-plugin-ionic-keyboard": "^2.0.5",
@@ -70,20 +69,14 @@
       "cordova-sqlite-storage": {},
       "cordova-plugin-statusbar": {},
       "cordova-plugin-request-location-accuracy": {},
-      "cordova-plugin-googlemaps": {
-        "API_KEY_FOR_ANDROID": "AIzaSyA-OQULfYdC1wBHVC0djkDv-PrzvVx2jjE",
-        "API_KEY_FOR_IOS": "AIzaSyA11PTKdZHjDsg-bzaooc3t7tKo5Zi_2xY",
-        "PLAY_SERVICES_VERSION": "15.0.1",
-        "ANDROID_SUPPORT_V4_VERSION": "26.1.0",
-        "LOCATION_WHEN_IN_USE_DESCRIPTION": "This app wants to get your location while this app runs only.",
-        "LOCATION_ALWAYS_USAGE_DESCRIPTION": "This app wants to get your location always, even this app runs in background."
-      },
       "mx.ferreyra.callnumber": {},
       "cordova-plugin-inappbrowser": {},
       "cordova-plugin-geolocation": {
         "GEOLOCATION_USAGE_DESCRIPTION": "To locate you"
       }
     },
-    "platforms": []
+    "platforms": [
+      "android"
+    ]
   }
 }

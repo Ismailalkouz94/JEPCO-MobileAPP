@@ -11,6 +11,7 @@ import { LangServiceProvider } from '../../providers/lang-service/lang-service';
 import { Storage } from '@ionic/storage';
 import { TipsServiceProvider } from '../../providers/tips-service/tips-service';
 import { TabsForCalcoulateComponent } from '../../components/tabs-for-calcoulate/tabs-for-calcoulate';
+import { CalculatorPage } from '../calculator/calculator';
 
 
 
@@ -66,7 +67,7 @@ export class HomePage {
   }
 
   goToCalculator() {
-    this.navCtrl.push(TabsForCalcoulateComponent);
+    this.navCtrl.push(CalculatorPage);
   }
 
   goToPaymentMethod() {

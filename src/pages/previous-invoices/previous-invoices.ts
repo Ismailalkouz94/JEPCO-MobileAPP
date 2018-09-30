@@ -19,7 +19,7 @@ import { HttpServiceProvider } from '../../providers/http-service/http-service';
   templateUrl: 'previous-invoices.html',
 })
 export class PreviousInvoicesPage {
-
+  billslLength: any;
 
   private requestOptions: any = {
     method: "",
@@ -36,7 +36,7 @@ export class PreviousInvoicesPage {
   };
 
   constructor(private alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams, private loading: LoadingServiceProvider, private lang: LangServiceProvider, private httpService: HttpServiceProvider) {
-   
+
   }
 
   async ionViewDidLoad() {
@@ -44,7 +44,7 @@ export class PreviousInvoicesPage {
   }
 
   goToInvoicesPage(bill) {
-    this.navCtrl.push(InvoicesPage, { subscriber: this.subscriber , bill: bill});
+    this.navCtrl.push(InvoicesPage, { subscriber: this.subscriber, bill: bill });
   }
 
 
@@ -76,7 +76,7 @@ export class PreviousInvoicesPage {
     }
   }
 
-  getUser(){
+  getUser() {
     return PublicVarProvider.getUser();
   }
 

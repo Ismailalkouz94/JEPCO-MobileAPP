@@ -4,7 +4,7 @@ import { PreviousInvoicesPage } from './previous-invoices';
 
 @NgModule({
   declarations: [
-    PreviousInvoicesPage,
+    // PreviousInvoicesPage,
   ],
   imports: [
     IonicPageModule.forChild(PreviousInvoicesPage),

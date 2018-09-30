@@ -4,7 +4,7 @@ import { PaymentCenterListPage } from './payment-center-list';
 
 @NgModule({
   declarations: [
-    PaymentCenterListPage,
+    // PaymentCenterListPage,
   ],
   imports: [
     IonicPageModule.forChild(PaymentCenterListPage),

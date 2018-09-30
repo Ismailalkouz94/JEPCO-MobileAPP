@@ -4,7 +4,7 @@ import { AddSubProfilePage } from './add-sub-profile';
 
 @NgModule({
   declarations: [
-    AddSubProfilePage,
+    // AddSubProfilePage,
   ],
   imports: [
     IonicPageModule.forChild(AddSubProfilePage),

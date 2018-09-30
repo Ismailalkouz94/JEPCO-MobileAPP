@@ -35,7 +35,7 @@ export class SliderPage {
   }
 
   regAction() {
-    this.navCtrl.push(RegistrationPage);
+    this.navCtrl.setRoot(RegistrationPage);
     this.storage.set('hideTutorial', 'true');
 }
  next() {

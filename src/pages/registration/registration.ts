@@ -43,7 +43,7 @@ export class RegistrationPage {
       lastName: new FormControl('', Validators.required),
       mobileNumber: new FormControl('', Validators.required),
       nationalNumber: new FormControl('', Validators.required),
-      email: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]),
+      email: new FormControl('', Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')),
       fileNum: new FormControl('', Validators.required),
       fileNum1: new FormControl('', Validators.required),
       fileNum2: new FormControl('', Validators.required),
@@ -117,9 +117,12 @@ export class RegistrationPage {
   }
 
   private markFormGroupTouched() {
-    (<any>Object).values(this.registrationForm.controls).forEach(control => {
-      control.markAsTouched();
-    });
+    Object.keys(this.registrationForm.controls).forEach(key => {
+      this.registrationForm.get(key).markAsDirty();
+    });    
+    // (<any>Object).values(this.registrationForm.controls).forEach(control => {
+    //   control.markAsTouched();
+    // });
   }
 
   // showLoading(){

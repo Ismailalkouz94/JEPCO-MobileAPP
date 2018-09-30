@@ -4,7 +4,7 @@ import { CalculatorWithoutSubPage } from './calculator-without-sub';
 
 @NgModule({
   declarations: [
-    CalculatorWithoutSubPage,
+    // CalculatorWithoutSubPage,
   ],
   imports: [
     IonicPageModule.forChild(CalculatorWithoutSubPage),

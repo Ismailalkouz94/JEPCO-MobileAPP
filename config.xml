@@ -83,29 +83,22 @@
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="1.1.19" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="2.0.5" />
-    <allow-navigation href="http://192.168.1.174:8100" />
-    <allow-navigation href="http://192.168.1.116:8100" />
-    <allow-navigation href="http://172.18.79.129:8100" />
     <plugin name="cordova-sqlite-storage" spec="^2.3.1" />
-    <allow-navigation href="http://192.168.1.91:8100" />
     <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
     <plugin name="cordova-plugin-request-location-accuracy" spec="^2.2.3" />
-    <allow-navigation href="http://172.28.144.161:8100" />
-    <allow-navigation href="http://192.168.1.154:8100" />
     <plugin name="mx.ferreyra.callnumber" spec="~0.0.2" />
     <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
-    <plugin name="cordova-plugin-googlemaps" spec="^2.3.4">
-        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyA-OQULfYdC1wBHVC0djkDv-PrzvVx2jjE" />
-        <variable name="API_KEY_FOR_IOS" value="AIzaSyA11PTKdZHjDsg-bzaooc3t7tKo5Zi_2xY" />
-        <variable name="PLAY_SERVICES_VERSION" value="15.0.1" />
-        <variable name="ANDROID_SUPPORT_V4_VERSION" value="26.1.0" />
-        <variable name="LOCATION_WHEN_IN_USE_DESCRIPTION" value="This app wants to get your location while this app runs only." />
-        <variable name="LOCATION_ALWAYS_USAGE_DESCRIPTION" value="This app wants to get your location always, even this app runs in background." />
-    </plugin>
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To locate you" />
     </plugin>
+    <allow-navigation href="http://192.168.1.174:8100" />
+    <allow-navigation href="http://192.168.1.116:8100" />
+    <allow-navigation href="http://172.18.79.129:8100" />
+    <allow-navigation href="http://192.168.1.91:8100" />
+    <allow-navigation href="http://172.28.144.161:8100" />
+    <allow-navigation href="http://192.168.1.154:8100" />
     <config-file parent="NSLocationWhenInUseUsageDescription" platform="ios" target="*-Info.plist">
         <string>This app requires access to your location.</string>
     </config-file>
+    <engine name="android" spec="7.0.0" />
 </widget>

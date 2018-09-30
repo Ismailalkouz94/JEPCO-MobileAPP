@@ -4,7 +4,7 @@ import { VarCodePage } from './var-code';
 
 @NgModule({
   declarations: [
-    VarCodePage,
+    // VarCodePage,
   ],
   imports: [
     IonicPageModule.forChild(VarCodePage),

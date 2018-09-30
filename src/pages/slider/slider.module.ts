@@ -4,7 +4,7 @@ import { SliderPage } from './slider';
 
 @NgModule({
   declarations: [
-    SliderPage,
+    // SliderPage,
   ],
   imports: [
     IonicPageModule.forChild(SliderPage),

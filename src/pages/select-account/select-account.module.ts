@@ -4,7 +4,7 @@ import { SelectAccountPage } from './select-account';
 
 @NgModule({
   declarations: [
-    SelectAccountPage,
+    // SelectAccountPage,
   ],
   imports: [
     IonicPageModule.forChild(SelectAccountPage),
