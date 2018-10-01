@@ -81,6 +81,8 @@ export function createTranslateLoader(http: HttpClient) {
     IonicModule.forRoot(MyApp, {
       backButtonIcon:"md-arrow-back",
       backButtonText: '',
+      scrollAssist:false,
+      autoFocusAssist:false
     }),
     IonicStorageModule.forRoot(),
     TranslateModule.forRoot({

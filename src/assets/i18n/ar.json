@@ -63,7 +63,7 @@
 "CodeR":"رقم التحقق مطلوب",
 "wait":"...الرجاء الانتظار",
 "SelectAcount":"اختيار الحساب",
-"Nickname":"الاسم المستعار:",
+"Nickname":"الاسم المستعار مطلوب",
 "AddSub":"اضافة حساب",
 "Add":"اضافة",
 "confirmation":"تأكيد",
@@ -94,6 +94,7 @@
 "profile_not_found ":"الحساب غير متوفر",
 "file_number_found":"رقم الملف المدخل موجود مسبقا",
 "file_number_not_found":"رقم الملف غير موجود",
-"sub_account_not_found":"الملف الفرعي غير موجود"
+"sub_account_not_found":"الملف الفرعي غير موجود",
+"optional":"(اختياري)"
 
 }

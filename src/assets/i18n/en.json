@@ -63,7 +63,7 @@
 "CodeR":"Code is required",
 "wait":"Please wait...",
 "SelectAcount":"Select Acount",
-"Nickname":"Nickname:",
+"Nickname":"Nickname is required",
 "AddSub":"Add sub account",
 "Add":"Add",
 "confirmation":"Confirmation",
@@ -94,7 +94,8 @@
 "profile_not_found ":"Profile not found ",
 "file_number_found":"File number alredy exist",
 "file_number_not_found":"File number not found",
-"sub_account_not_found":"Sub account not found"
+"sub_account_not_found":"Sub account not found",
+"optional":"(Optionl)"
 
 
 
