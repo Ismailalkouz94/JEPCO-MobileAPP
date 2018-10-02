@@ -49,6 +49,7 @@
 "CurrentReading":"Current reading",
 "DateReading":"Date of reading",
 "QuantityConsumption":"Quantity of consumption",
+"ConsumptionValue":"Value of consumption",
 "Invoice value":"Invoice value JD",
 "History of oxidation":"History of payment",
 "Error":"Error",
@@ -63,7 +64,8 @@
 "CodeR":"Code is required",
 "wait":"Please wait...",
 "SelectAcount":"Select Acount",
-"Nickname":"Nickname is required",
+"Nickname":"Nick Name",
+"Nickname_req":"Nickname is required",
 "AddSub":"Add sub account",
 "Add":"Add",
 "confirmation":"Confirmation",
@@ -95,9 +97,7 @@
 "file_number_found":"File number alredy exist",
 "file_number_not_found":"File number not found",
 "sub_account_not_found":"Sub account not found",
-"optional":"(Optionl)"
-
-
-
+"optional":"(Optionl)",
+"JOD":"JOD"
 
 }

@@ -114,7 +114,7 @@ export class CalculatorPage {
 
         let alert = this.alertCtrl.create({
           title: this.lang.getTranslate('c_valueCA'),
-          subTitle: this.lang.getTranslate('c_carentValue') + this.newValue,
+          subTitle: this.lang.getTranslate('c_carentValue') +" "+ this.newValue + " "+this.lang.getTranslate('JOD'),
           buttons: [this.lang.getTranslate('Ok')]
         });
         alert.present();

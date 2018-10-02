@@ -35,7 +35,7 @@
     <form [formGroup]="calculatForm" (ngSubmit)="CalculateService()">
     <ion-item>
         <ion-label floating mode="md"> {{ 'c_MR' | translate }}</ion-label>
-        <ion-input type="tel" maxlength="15" style=" height: calc(1vw + 1vh + 17vmin)" formControlName="meterRead"></ion-input>
+        <ion-input type="tel" maxlength="15"  formControlName="meterRead"></ion-input><!-- style=" height: calc(1vw + 1vh + 17vmin)" -->
     </ion-item>
     <div class="error-message" *ngIf="(calculatForm.get('meterRead').errors) && ((calculatForm.get('meterRead').dirty || calculatForm.get('meterRead').touched))">
         <div *ngIf="calculatForm.get('meterRead').hasError('required')">{{"c_MRR" | translate}}</div>

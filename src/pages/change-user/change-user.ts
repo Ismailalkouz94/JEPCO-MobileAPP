@@ -65,7 +65,7 @@ export class ChangeUserPage {
 
     this.loading.showLoading();
     //request
-    this.requestOptions.path = "sub/delete/" + customerSubAccount.id;
+    this.requestOptions.path = "sub/delete/" + customerSubAccount.fileNumber;
 
     this.requestOptions.method = "PUT";
 

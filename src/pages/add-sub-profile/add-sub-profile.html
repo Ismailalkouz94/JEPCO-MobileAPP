@@ -29,7 +29,7 @@
             <ion-input type="text" formControlName="alias" maxlength="14"></ion-input>
           </ion-item>
           <div class="error-message" *ngIf="(AddSubForm.get('alias').errors) && ((AddSubForm.get('alias').dirty || AddSubForm.get('alias').touched))">
-            <div *ngIf="AddSubForm.get('alias').hasError('required')">{{"Nickname" | translate}}</div>
+            <div *ngIf="AddSubForm.get('alias').hasError('required')">{{"Nickname_req" | translate}}</div>
           </div>
         </ion-col>
       </ion-row>
