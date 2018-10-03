@@ -101,6 +101,8 @@
 "JOD":"دينار",
 "bill_consumption_meterReading_lessThan_preReading":"القراءه الحاليه اقل من القراءه السابقه",
 "bill_consumption_not_found":"القراءه المدخله غير صحيحه",
-"system_error": "حدث خطأ في النظام , يرجى المحاولة مرة اخرى"
+"system_error": "حدث خطأ في النظام , يرجى المحاولة مرة اخرى",
+"data_one_week":"البيانات  محدثه لغايه اسبوع",
+"no_internet_connection":"لا يوجد إتصال بالإنترنت"
 
 }

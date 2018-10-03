@@ -1,5 +1,16 @@
 page-previous-invoices {
    
+    .no-scroll {
+            overflow-y: hidden;
+        
+    }
+    
+    .scroll {
+        scroll-content {
+            overflow-y: scroll;
+        }
+    }
+
     .div{
         background-color: #e6e6e6;
         padding-left: 12px;
@@ -31,5 +42,12 @@ page-previous-invoices {
 
     .fontt{
         font-size: calc(1vw + 5vmin);
+    }
+
+    .hintStyle{
+        text-align: center;
+        display: block;
+        margin-top: 30px;
+        color: red;
     }
 }

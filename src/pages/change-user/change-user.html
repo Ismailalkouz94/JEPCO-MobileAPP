@@ -24,7 +24,7 @@
       <p class="pp">{{ 'c_FNO' | translate }} {{ this.getUser().fileNumber | slice:0:2}}/{{ this.getUser().fileNumber | slice:2:7}}/{{ this.getUser().fileNumber | slice:7:13}}</p>
     </ion-row>
     <ion-row>
-      <p class="pp">{{ 'reg_MOB' | translate }} {{ 'reg_MOB' | translate }} {{ this.getProfile().mobileNumber}}</p>
+      <p class="pp">{{ 'reg_MOB' | translate }}</p>  &nbsp;<span class="pp" style="direction: ltr;">{{ this.getProfile().mobileNumber}}</span>
     </ion-row>
     <ion-row>
       <p class="pp">{{ 'reg_ID' | translate }} {{ this.getProfile().nationalNumber}}</p>

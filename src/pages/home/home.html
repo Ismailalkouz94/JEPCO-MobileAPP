@@ -21,15 +21,15 @@
 
 <ion-content padding>
 
-  <div style="height: 3%">
+  <!-- <div style="height: 3%">
 
-  </div>
+  </div> -->
   <form>
     <div style="height: 72px">
       <ion-icon [class.hide]="!tipsView" (click)="tipsView = !(tipsView)" name="close-circle" style="font-size: 2em;margin-top: -20px; margin-left: 2px;margin-right: 3px; position: absolute;"></ion-icon>
-      <div [class.hide]="!tipsView" style="background-color: #8e8e8e;height: 72px;  border-radius: 6px; padding-left: 2px;padding-right: 2px; color: white">
+      <div [class.hide]="!tipsView" style="background-color: #8e8e8e;height: 70px;  border-radius: 6px; padding-left: 2px;padding-right: 2px; color: white">
         <!-- <p style=" text-align: center;line-height: 121% !important;padding-top: 1px;padding-bottom: 1px">{{ tipsServiceProvider.tipsText }}</p> -->
-        <p style=" text-align: center;line-height: 121% !important;padding-top: 7px;padding-bottom: 1px;font-size: 1.6rem;">{{ tipsServiceProvider.tipsText | slice:0:120}}</p>
+        <p style=" text-align: center;line-height: 121% !important;padding-top: 7px;padding-bottom: 1px;font-size: 1.6rem;">{{ (tipsServiceProvider.tipsText) | slice:0:150}}</p>
       </div>
     </div>
     <ion-grid>
@@ -71,5 +71,9 @@
         </ion-col>
       </ion-row>
     </ion-grid>
+    <!-- <ion-row class="hintStyle"><h6>{{ 'data_one_week' | translate }}</h6></ion-row> -->
   </form>
 </ion-content>
+<!-- <ion-footer no-border transparent>
+    <ion-row class="hintStyle"><h6>{{ 'data_one_week' | translate }}</h6></ion-row>
+</ion-footer> -->

@@ -72,7 +72,7 @@ export class PopoverComponent {
         this.storage.set('flagLanguage', this.lang1);
       }
     })
-
+    this.viewCtrl.dismiss();
 
   }
 

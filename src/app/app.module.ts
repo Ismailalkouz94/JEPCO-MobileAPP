@@ -43,7 +43,7 @@ import { ImageModalPage } from '../pages/imageModal/imageModal';
 import { MapModalPage } from '../pages/map-modal/map-modal';
 import { CalculatorWithoutSubPage } from '../pages/calculator-without-sub/calculator-without-sub';
 import { TabsForCalcoulateComponent } from '../components/tabs-for-calcoulate/tabs-for-calcoulate';
-
+import { Network } from '@ionic-native/network';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -134,6 +134,7 @@ export function createTranslateLoader(http: HttpClient) {
     LoadingServiceProvider,
     LangServiceProvider,
     TipsServiceProvider,
+    Network,
     Geolocation
     
     

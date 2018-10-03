@@ -12,6 +12,8 @@ import { Storage } from '@ionic/storage';
 import { TipsServiceProvider } from '../../providers/tips-service/tips-service';
 import { TabsForCalcoulateComponent } from '../../components/tabs-for-calcoulate/tabs-for-calcoulate';
 import { CalculatorPage } from '../calculator/calculator';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { Platform } from 'ionic-angular/platform/platform';
 
 
 
@@ -34,9 +36,82 @@ export class HomePage {
   // fab: FabContainer
   @ViewChild('fab') fabElement: FabContainer;
 
-  constructor(private storage: Storage, private langueg: LangServiceProvider, private httpService: HttpServiceProvider, private alertCtrl: AlertController, public navCtrl: NavController, public menuCtrl: MenuController, public popoverCtrl: PopoverController, private tipsServiceProvider: TipsServiceProvider) {
+  constructor(private storage: Storage,
+    private langueg: LangServiceProvider,
+    private httpService: HttpServiceProvider,
+    private alertCtrl: AlertController,
+    public navCtrl: NavController,
+    public menuCtrl: MenuController,
+    public popoverCtrl: PopoverController,
+    public translate: TranslateService,
+    public platform: Platform,
+    private tipsServiceProvider: TipsServiceProvider) {
     this.menuCtrl.enable(true, 'myMenu');
-    // this.getTips()
+    this.getTips()
+
+    setInterval(() => {
+      this.tipsServiceProvider.tipsIndex++;
+      if (this.tipsServiceProvider.tipsIndex == (this.tipsServiceProvider.tipsArray.length - 1)) {
+        this.tipsServiceProvider.tipsIndex = 0;
+      }
+      this.storage.get('flagLanguage').then((val) => {
+        if (val == null || val == "ar") {
+          this.tipsServiceProvider.tipsText = this.tipsServiceProvider.tipsArray[this.tipsServiceProvider.tipsIndex].arabicText;
+        }
+        else {
+          this.tipsServiceProvider.tipsText = this.tipsServiceProvider.tipsArray[this.tipsServiceProvider.tipsIndex].englishText;
+        }
+      });
+    }, 90000);
+
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      if (event.lang == 'ar' || event.lang == null) {
+        this.getTips();
+
+      }
+      else {
+        this.getTips();
+
+      }
+    });
+
+  }
+
+  async getTips() {
+
+    this.requestOptions.path = "tips";
+
+    this.requestOptions.method = "GET";
+
+    let response = await this.httpService.http_request(this.requestOptions);
+
+    if (response.status == 200) {
+
+      this.tipsServiceProvider.tipsArray = response.json().body;
+
+      this.storage.get('flagLanguage').then((val) => {
+
+
+        if (val == null || val == "ar") {
+          this.tipsServiceProvider.tipsText = this.tipsServiceProvider.tipsArray[this.tipsServiceProvider.tipsIndex].arabicText;
+        }
+        else {
+          this.tipsServiceProvider.tipsText = this.tipsServiceProvider.tipsArray[this.tipsServiceProvider.tipsIndex].englishText;
+        }
+      });
+
+    } /*else {
+
+
+      let alert = this.alertCtrl.create({
+        title: this.langueg.getTranslate('Error'),
+        subTitle: this.langueg.getTranslate(response.key),
+        buttons: [this.langueg.getTranslate('Ok')]
+      });
+      alert.present();
+
+
+    }*/
   }
 
   presentPopover(myEvent) {
@@ -77,8 +152,6 @@ export class HomePage {
   getUser() {
     return PublicVarProvider.getUser();
   }
-
-
 
   getTibsService() {
     return PublicVarProvider.getTip();

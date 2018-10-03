@@ -72,12 +72,12 @@
 "Cancel":"Cancel",
 "JOD":"JOD",
 "CalcolateHelp":"Please enter the current reading of the meter",
-"Payed":"Payed",
+"Payed":"Paid",
 "help":"Help",
 "email":"Email:",
 "emailR":"Email is required",
 "Email_not_valid":"Email not valid",
-"None_Payed":"None_Payed",
+"None_Payed":"Not Paid",
 "ConfOK":"Are you sure want to delete this sub account ?",
 "SelectAcountFrom":"Select Acount from menu",
 "varCode":"To check your phone number, please enter the code you will receive in the text message",
@@ -97,11 +97,13 @@
 "file_number_found":"File number alredy exist",
 "file_number_not_found":"File number not found",
 "sub_account_not_found":"Sub account not found",
-"optional":"(Optionl)",
+"optional":"(optionl)",
 "JOD":"JOD",
 "bill_consumption_meterReading_lessThan_preReading":"this reading less than previous reading",
 "bill_consumption_not_found":"this reading is error",
-"system_error": "Error has been occured, please try again"
+"system_error": "Error has been occured, please try again",
+"data_one_week":"The data is updated for one week",
+"no_internet_connection":"No internet connection"
 
 
 }

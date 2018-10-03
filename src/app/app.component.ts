@@ -18,6 +18,7 @@ import { HttpServiceProvider } from '../providers/http-service/http-service';
 import { PublicVarProvider } from '../providers/public-var/public-var';
 import { SelectAccountPage } from '../pages/select-account/select-account';
 import { TipsServiceProvider } from '../providers/tips-service/tips-service';
+import { Network } from '@ionic-native/network';
 
 
 
@@ -46,7 +47,15 @@ export class MyApp {
 
 
 
-  constructor(private alertCtrl: AlertController, private httpService: HttpServiceProvider, private loading: LoadingServiceProvider, private langueg: LangServiceProvider, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private storage: Storage, public translate: TranslateService, private tipsServiceProvider: TipsServiceProvider) {
+  constructor(private alertCtrl: AlertController,
+    private httpService: HttpServiceProvider,
+    private loading: LoadingServiceProvider,
+    private langueg: LangServiceProvider,
+    private platform: Platform, statusBar: StatusBar,
+    splashScreen: SplashScreen, private storage: Storage,
+    public translate: TranslateService,
+    private tipsServiceProvider: TipsServiceProvider,
+    private network: Network) {
 
     // this.storage.get('hideTutorial').then((val) => {
     //   if (val == null || val == false)
@@ -57,11 +66,101 @@ export class MyApp {
 
     // })
 
+    this.storage.get('flagLanguage').then((val) => {
+      if (val == null || val == "ar") {
+        translate.setDefaultLang('ar');
+        translate.use('ar');
+        this.lang1 = "ar";
+      }
+      else {
+        translate.setDefaultLang('en');
+        translate.use('en');
+        this.lang1 = "en";
+      }
+
+      this.proceed();
+    })
+
+    platform.ready().then(() => {
+      // Okay, so the platform is ready and our plugins are available.
+      // Here you can do any higher level native things you might need.
+
+
+      // platform.setDir('rtl', true);
+      // statusBar.styleDefault();
+      // let status bar overlay webview
+      statusBar.overlaysWebView(false);
+
+      // set status bar to white
+      statusBar.styleBlackOpaque();
+      statusBar.backgroundColorByHexString('#26464f');
+
+
+      splashScreen.hide();
+    });
+
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      if (event.lang == 'ar' || event.lang == null) {
+        platform.setDir('rtl', true);
+        //this.getTips();
+
+      }
+      else {
+        platform.setDir('ltr', true);
+        //this.getTips();
+
+      }
+    });
+
+    /*setInterval(() => {
+      this.tipsServiceProvider.tipsIndex++;
+      if (this.tipsServiceProvider.tipsIndex == (this.tipsServiceProvider.tipsArray.length - 1)) {
+        this.tipsServiceProvider.tipsIndex = 0;
+      }
+      this.storage.get('flagLanguage').then((val) => {
+        if (val == null || val == "ar") {
+          this.tipsServiceProvider.tipsText = this.tipsServiceProvider.tipsArray[this.tipsServiceProvider.tipsIndex].arabicText;
+        }
+        else {
+          this.tipsServiceProvider.tipsText = this.tipsServiceProvider.tipsArray[this.tipsServiceProvider.tipsIndex].englishText;
+        }
+      });
+    }, 90000);*/
+
+  }
+
+  proceed() {
+
     this.storage.get('flagNationalNumber').then(async (val) => {
 
       if (val == null || val == false)
         this.rootPage = WelcomePage;
       else {
+
+        //check internet connection
+        let conntype = this.network.type;
+        let status = conntype && conntype !== 'unknown' && conntype !== 'none';
+
+        // let message = "لا يوجد إتصال بالإنترنت";
+
+        // if (this.lang1 == "en") {
+        //   message = "No internet connection";
+        // }
+
+        if (status == false) {
+          let alert = this.alertCtrl.create({
+            title: this.langueg.getTranslate('Error'),
+            subTitle: this.langueg.getTranslate('no_internet_connection'),
+            buttons: [this.langueg.getTranslate('Ok')]
+          })
+
+          alert.onDidDismiss(() => {
+            this.platform.exitApp();
+          });
+
+          alert.present();
+          return;
+        }
 
         this.loading.showLoading();
 
@@ -87,8 +186,6 @@ export class MyApp {
 
           }
 
-
-
           this.loading.dismissLoading();
 
         } else {
@@ -96,7 +193,7 @@ export class MyApp {
 
           let alert = this.alertCtrl.create({
             title: this.langueg.getTranslate('Error'),
-            subTitle:this.langueg.getTranslate(response.key),
+            subTitle: this.langueg.getTranslate(response.key),
             buttons: [this.langueg.getTranslate('Ok')]
           });
           alert.present();
@@ -108,69 +205,6 @@ export class MyApp {
 
       }
     })
-
-
-
-
-    this.storage.get('flagLanguage').then((val) => {
-      if (val == null || val == "ar") {
-        translate.setDefaultLang('ar');
-        translate.use('ar');
-        this.lang1 = "ar";
-      }
-
-      else {
-        translate.setDefaultLang('en');
-        translate.use('en');
-        this.lang1 = "en";
-      }
-    })
-
-    platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-
-
-      // platform.setDir('rtl', true);
-      // statusBar.styleDefault();
-      // let status bar overlay webview
-      statusBar.overlaysWebView(false);
-
-      // set status bar to white
-      statusBar.styleBlackOpaque();
-      statusBar.backgroundColorByHexString('#26464f');
-
-
-      splashScreen.hide();
-    });
-
-    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
-      if (event.lang == 'ar' || event.lang == null) {
-        platform.setDir('rtl', true);
-        this.getTips();
-
-      }
-      else {
-        platform.setDir('ltr', true);
-        this.getTips();
-
-      }
-    });
-
-    setInterval(() => {
-      this.tipsServiceProvider.tipsIndex++;
-      if (this.tipsServiceProvider.tipsIndex == (this.tipsServiceProvider.tipsArray.length - 1)) {
-        this.tipsServiceProvider.tipsIndex = 0;
-      }
-      this.storage.get('flagLanguage').then((val) => {
-        if (val == null || val == "ar") {
-          this.tipsServiceProvider.tipsText = this.tipsServiceProvider.tipsArray[this.tipsServiceProvider.tipsIndex].arabicText;
-        }
-        else {
-          this.tipsServiceProvider.tipsText = this.tipsServiceProvider.tipsArray[this.tipsServiceProvider.tipsIndex].englishText;
-        }
-      });
-    }, 90000);
 
   }
 
@@ -184,7 +218,7 @@ export class MyApp {
   }
 
 
-  async getTips() {
+  /*async getTips() {
 
     this.requestOptions.path = "tips";
 
@@ -220,7 +254,7 @@ export class MyApp {
 
 
     }
-  }
+  }*/
 
 }
 
