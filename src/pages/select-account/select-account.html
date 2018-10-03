@@ -27,7 +27,7 @@
       <p class="pp">{{ 'c_NameOF' | translate }} {{ this.getProfile().firstName}} {{ this.getProfile().lastName}}</p>
     </ion-row>
     <ion-row>
-      <p class="pp">{{ 'reg_MOB' | translate }} {{ this.getProfile().mobileNumber}}</p>
+      <p class="pp">{{ 'reg_MOB' | translate }}</p> &nbsp;<span class="pp" style="direction: ltr;">{{ this.getProfile().mobileNumber}}</span>
     </ion-row>
     <ion-row>
       <p class="pp">{{ 'reg_ID' | translate }} {{ this.getProfile().nationalNumber}}</p>
@@ -40,10 +40,10 @@
   <div *ngFor="let customerSubAccount of subAccount" style="background-color:  #e6e6e6;  margin-top: 2px">
       <ion-row (click)="selectUser(customerSubAccount)" value="" >
         <ion-col col-4>
-          <p class="pp">{{ customerSubAccount.alias }}</p>
+          <p class="subAccount">{{ customerSubAccount.alias }}</p>
         </ion-col>
         <ion-col col-8>
-          <p class="pp">{{ customerSubAccount.fileNumber | slice:0:2}}/{{ customerSubAccount.fileNumber | slice:2:7}}/{{ customerSubAccount.fileNumber | slice:7:13}}</p>
+          <p class="subAccount">{{ customerSubAccount.fileNumber | slice:0:2}}/{{ customerSubAccount.fileNumber | slice:2:7}}/{{ customerSubAccount.fileNumber | slice:7:13}}</p>
        </ion-col>
       </ion-row>
     </div>

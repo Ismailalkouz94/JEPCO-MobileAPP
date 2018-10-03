@@ -36,7 +36,7 @@ export class HttpServiceProvider {
           response = err.json();
           break;
         case 500:
-          response = { status: err.status , message_key: err.statusText}
+          response = { status: err.status , key: "system_error"}
           break;
         default:
           response = err.json();
