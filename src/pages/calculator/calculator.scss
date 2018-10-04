@@ -29,4 +29,14 @@ page-calculator {
 .ppp{
     font-size: calc(1vw + 2.8vmin);
 }
+
+ion-input{
+    input{
+        text-align: center
+    }
+}
+
+.redClass{
+color: red
+}
 }

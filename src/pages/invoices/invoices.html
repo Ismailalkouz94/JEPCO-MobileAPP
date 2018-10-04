@@ -90,6 +90,20 @@
   </div>
 
   <div style="background-color:  #e6e6e6; margin-top: 2px">
+      <ion-row class="roww">
+        <ion-col col-6>
+          <p class="pp">{{ 'QuantityConsumption' | translate }}</p>
+        </ion-col>
+        <ion-col col-1>
+          <p class="pp"></p>
+        </ion-col>
+        <ion-col col-5 class="colCas">
+          <p class="pp" style="color: white">{{ bill.consumeQty }}</p>
+        </ion-col>
+      </ion-row>
+    </div>
+
+  <div style="background-color:  #e6e6e6; margin-top: 2px">
     <ion-row class="roww">
       <ion-col col-6>
         <p class="pp">{{ 'ConsumptionValue' | translate }}</p>

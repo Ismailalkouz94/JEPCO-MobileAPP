@@ -34,7 +34,8 @@ export class CalculatorPage {
     mConBalance: null,
     mConsumerName: null,
     mMeterNo: null,
-    mOwnerName: null
+    mOwnerName: null,
+    mPreviousRead:null
   };
 
   newValue:any;
@@ -114,7 +115,9 @@ export class CalculatorPage {
 
         let alert = this.alertCtrl.create({
           title: this.lang.getTranslate('c_valueCA'),
-          subTitle: this.lang.getTranslate('c_carentValue') +" "+ this.newValue + " "+this.lang.getTranslate('JOD'),
+          subTitle:
+          "- "+this.lang.getTranslate('QuantityConsumption') +" ("+ this.newValue.consumption + ") "+this.lang.getTranslate('KW')+"<br>"+ 
+          "- "+this.lang.getTranslate('c_carentValue') +" ("+ this.newValue.value + ") "+this.lang.getTranslate('JOD'),
           buttons: [this.lang.getTranslate('Ok')]
         });
         alert.present();

@@ -24,7 +24,8 @@
             <p class="pp">{{ 'c_CN' | translate }} {{ subscriber.mMeterNo }}</p>
         </ion-row>
         <ion-row>
-            <p class="pp">{{ 'c_FNO' | translate }} {{ this.getUser().fileNumber | slice:0:2}}/{{ this.getUser().fileNumber | slice:2:7}}/{{ this.getUser().fileNumber | slice:7:13}}</p>
+            <p class="pp">{{ 'c_FNO' | translate }} {{ this.getUser().fileNumber | slice:0:2}}/{{ this.getUser().fileNumber | slice:2:7}}/{{
+                this.getUser().fileNumber | slice:7:13}}</p>
         </ion-row>
     </div>
     <div style="height: 3%"></div>
@@ -32,19 +33,25 @@
     <div style="margin-top: 5px;margin-bottom: 6px">
         <p class="fontt">{{ 'CalcolateHelp' | translate }}</p>
     </div>
-    <form [formGroup]="calculatForm" (ngSubmit)="CalculateService()">
     <ion-item>
-        <ion-label floating mode="md"> {{ 'c_MR' | translate }}</ion-label>
-        <ion-input type="tel" maxlength="15"  formControlName="meterRead"></ion-input><!-- style=" height: calc(1vw + 1vh + 17vmin)" -->
-    </ion-item>
-    <div class="error-message" *ngIf="(calculatForm.get('meterRead').errors) && ((calculatForm.get('meterRead').dirty || calculatForm.get('meterRead').touched))">
-        <div *ngIf="calculatForm.get('meterRead').hasError('required')">{{"c_MRR" | translate}}</div>
-    </div>
+            <ion-label floating mode="md"> {{ 'previousReading' | translate }}</ion-label>
+            <ion-input type="tel" maxlength="15" [(ngModel)]="subscriber.mPreviousRead" disabled></ion-input>
+        </ion-item>
+    <form [formGroup]="calculatForm" (ngSubmit)="CalculateService()">
+        
+        <ion-item>
+            <ion-label floating mode="md"> {{ 'c_MR' | translate }}</ion-label>
+            <ion-input  type="tel" maxlength="9" formControlName="meterRead"></ion-input>
+            <!-- style=" height: calc(1vw + 1vh + 17vmin)" -->
+        </ion-item>
+        <div class="error-message" *ngIf="(calculatForm.get('meterRead').errors) && ((calculatForm.get('meterRead').dirty || calculatForm.get('meterRead').touched))">
+            <div *ngIf="calculatForm.get('meterRead').hasError('required')">{{"c_MRR" | translate}}</div>
+        </div>
 
-    <div style="height: 15px"></div>
-    <button type="submit" ion-button style="width: 98% ; font-size: calc(1vw + 2.8vmin); height: calc(1vw + 7.8vmin);">
-        {{ 'c_CA' | translate }}
-    </button>
-</form>
+        <div style="height: 15px"></div>
+        <button type="submit" ion-button style="width: 98% ; font-size: calc(1vw + 2.8vmin); height: calc(1vw + 7.8vmin);">
+            {{ 'c_CA' | translate }}
+        </button>
+    </form>
 
 </ion-content>
