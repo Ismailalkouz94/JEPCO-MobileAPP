@@ -9,12 +9,12 @@
 "reg_name":"First name:",
 "reg_name1":"Family name:",
 "reg_MOB":"Mobile number:",
-"reg_ID":"ID number:",
+"reg_ID":"ID number / National Number:",
 "reg_fileNum":"File number:",
 "reg_nameR":"First name is required",
 "reg_name1R":"Family name is required",
 "reg_MOBR":"Mobile number is required",
-"reg_IDR":"ID number is required",
+"reg_IDR":"ID number / National Number is required",
 "reg_fileNumR":"File number is required",
 "reg_signUp":"Sign up",
 "h_Inquire":"Inquire about invoices",
@@ -104,7 +104,9 @@
 "bill_consumption_not_found":"this reading is error",
 "system_error": "Error has been occured, please try again",
 "data_one_week":"The data is updated for one week",
-"no_internet_connection":"No internet connection"
+"no_internet_connection":"No internet connection",
+"Jordan": "Jordanian",
+"Non_Jordan": "Non Jordanian"
 
 
 }

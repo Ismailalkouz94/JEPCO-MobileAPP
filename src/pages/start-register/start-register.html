@@ -1,9 +1,9 @@
 <ion-header>
-
   <ion-navbar>
-    {{ 'Welcome' | translate }}
+    <ion-title>
+      {{ 'reg_signUp' | translate }}
+    </ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
@@ -14,18 +14,14 @@
   <form [formGroup]="registrationForm" (ngSubmit)="submitForm()">
     <div class="div">
       <ion-row radio-group formControlName="idType">
-        <ion-col col-6>
-          <ion-item>
-            <ion-label>{{ "Jordan" | translate }}</ion-label>
-            <ion-radio value="1" checked></ion-radio>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6>
-          <ion-item>
-            <ion-label>{{ "Non-Jordan" | translate }}</ion-label>
-            <ion-radio value="2"></ion-radio>
-          </ion-item>
-        </ion-col>
+        <ion-item>
+          <ion-label>{{ "Jordan" | translate }}</ion-label>
+          <ion-radio value="1" checked></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ "Non_Jordan" | translate }}</ion-label>
+          <ion-radio value="2"></ion-radio>
+        </ion-item>
       </ion-row>
       <div class="error-message" *ngIf="(registrationForm.get('idType').errors) && ((registrationForm.get('idType').dirty || registrationForm.get('idType').touched))">
         <div *ngIf="registrationForm.get('idType').hasError('required')">{{ "id_type_required" | translate}}</div>

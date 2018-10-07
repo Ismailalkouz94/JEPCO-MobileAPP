@@ -19,4 +19,10 @@ page-start-register {
       .radio .radio-icon{
         display: block;
     }
+
+    ion-input{
+        input{
+            text-align: center
+        }
+    }
 }
