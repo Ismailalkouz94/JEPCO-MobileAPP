@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform, MenuController, Slides } from 'ionic-angular';
 import { RegistrationPage } from '../registration/registration';
 import { Storage } from '@ionic/storage';
+import { StartRegisterPage } from '../start-register/start-register';
 
 
 /**
@@ -35,7 +36,7 @@ export class SliderPage {
   }
 
   regAction() {
-    this.navCtrl.setRoot(RegistrationPage);
+    this.navCtrl.setRoot(StartRegisterPage);
     this.storage.set('hideTutorial', 'true');
 }
  next() {

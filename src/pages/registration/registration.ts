@@ -41,8 +41,6 @@ export class RegistrationPage {
     this.registrationForm = new FormGroup({
       firstName: new FormControl('', Validators.required),
       lastName: new FormControl('', Validators.required),
-      mobileNumber: new FormControl('', Validators.required),
-      nationalNumber: new FormControl('', Validators.required),
       email: new FormControl('', Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')),
       fileNum: new FormControl('', Validators.required),
       fileNum1: new FormControl('', Validators.required),
@@ -84,11 +82,17 @@ export class RegistrationPage {
       this.loading.showLoading();
       // this.showLoading();
       //request
-      this.requestOptions.path = "sms/send";
+      this.requestOptions.path = "profile/create";
 
       this.requestOptions.method = "POST";
 
       this.registrationForm.value.fileNumber = this.registrationForm.get('fileNum2').value + this.registrationForm.get('fileNum1').value + this.registrationForm.get('fileNum').value;
+
+      this.registrationForm.value.nationalNumber = this.navParams.get('nationalNumber');
+
+      this.registrationForm.value.mobileNumber = this.navParams.get('mobileNumber');
+
+      this.registrationForm.value.idType = this.navParams.get('idType');
 
       this.requestOptions.body = this.registrationForm.value;
 
@@ -100,7 +104,11 @@ export class RegistrationPage {
         // this.dismissLoading();
         this.loading.dismissLoading();
 
-        this.navCtrl.setRoot(VarCodePage, this.requestOptions.body);
+        this.storage.set('flagNationalNumber', this.navParams.get('nationalNumber'));
+        PublicVarProvider.setUser(response.json().body.customerSubAccountList[0]);
+        PublicVarProvider.setProfile(response.json().body) 
+        this.navCtrl.setRoot(HomePage);
+
       } else {
         // this.dismissLoading();
         this.loading.dismissLoading();

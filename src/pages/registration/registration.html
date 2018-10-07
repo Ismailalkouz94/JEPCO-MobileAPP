@@ -39,32 +39,6 @@
       <ion-row>
         <ion-col>
           <ion-item>
-            <ion-label floating mode="md">{{ 'reg_MOB' | translate }}</ion-label>
-            <ion-input type="tel" formControlName="mobileNumber"  maxlength="15"></ion-input>
-          </ion-item>
-          <div class="error-message" *ngIf="(registrationForm.get('mobileNumber').errors) && ((registrationForm.get('mobileNumber').dirty || registrationForm.get('mobileNumber').touched))">
-            <div *ngIf="registrationForm.get('mobileNumber').hasError('required')">{{"reg_MOBR" | translate}}</div>
-          </div>
-        </ion-col>
-      </ion-row>
-    </div>
-    <div class="div">
-      <ion-row>
-        <ion-col>
-          <ion-item>
-            <ion-label floating mode="md"> {{ 'reg_ID' | translate }}</ion-label>
-            <ion-input type="tel" formControlName="nationalNumber"  maxlength="10"></ion-input>
-          </ion-item>
-          <div class="error-message" *ngIf="(registrationForm.get('nationalNumber').errors) && ((registrationForm.get('nationalNumber').dirty || registrationForm.get('nationalNumber').touched))">
-            <div *ngIf="registrationForm.get('nationalNumber').hasError('required')">{{"reg_IDR" | translate}}</div>
-          </div>
-        </ion-col>
-      </ion-row>
-    </div>
-    <div class="div">
-      <ion-row>
-        <ion-col>
-          <ion-item>
             <ion-label floating mode="md"> {{ 'email' | translate }} {{ 'optional' | translate }} </ion-label>
             <ion-input type="text" formControlName="email" ></ion-input>
           </ion-item>

@@ -173,20 +173,11 @@ export class MyApp {
 
         if (response.status == 200) {
 
-
-          if (response.json().body.customerSubAccountList.length > 1) {
-            PublicVarProvider.setProfile(response.json().body);
-            this.rootPage = SelectAccountPage;
-
-          } else {
-            PublicVarProvider.setUser(response.json().body.customerSubAccountList[0]);
-            PublicVarProvider.setProfile(response.json().body);
-            this.rootPage = HomePage;
-
-
-          }
-
           this.loading.dismissLoading();
+
+          PublicVarProvider.setUser(response.json().body.customerSubAccountList[0]);
+          PublicVarProvider.setProfile(response.json().body);
+          this.rootPage = HomePage;
 
         } else {
 

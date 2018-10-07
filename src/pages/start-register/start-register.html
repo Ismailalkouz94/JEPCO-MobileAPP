@@ -1,18 +1,69 @@
-<!--
-  Generated template for the StartRegisterPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>start-register</ion-title>
+    {{ 'Welcome' | translate }}
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <div style="height: 1%">
+  </div>
+
+  <form [formGroup]="registrationForm" (ngSubmit)="submitForm()">
+    <div class="div">
+      <ion-row radio-group formControlName="idType">
+        <ion-col col-6>
+          <ion-item>
+            <ion-label>{{ "Jordan" | translate }}</ion-label>
+            <ion-radio value="1" checked></ion-radio>
+          </ion-item>
+        </ion-col>
+        <ion-col col-6>
+          <ion-item>
+            <ion-label>{{ "Non-Jordan" | translate }}</ion-label>
+            <ion-radio value="2"></ion-radio>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <div class="error-message" *ngIf="(registrationForm.get('idType').errors) && ((registrationForm.get('idType').dirty || registrationForm.get('idType').touched))">
+        <div *ngIf="registrationForm.get('idType').hasError('required')">{{ "id_type_required" | translate}}</div>
+      </div>
+    </div>
+    <div class="div">
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label floating mode="md"> {{ 'reg_ID' | translate }}</ion-label>
+            <ion-input type="tel" formControlName="nationalNumber" maxlength="10"></ion-input>
+          </ion-item>
+          <div class="error-message" *ngIf="(registrationForm.get('nationalNumber').errors) && ((registrationForm.get('nationalNumber').dirty || registrationForm.get('nationalNumber').touched))">
+            <div *ngIf="registrationForm.get('nationalNumber').hasError('required')">{{"reg_IDR" | translate}}</div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div class="div">
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label floating mode="md">{{ 'reg_MOB' | translate }}</ion-label>
+            <ion-input type="tel" formControlName="mobileNumber" maxlength="15"></ion-input>
+          </ion-item>
+          <div class="error-message" *ngIf="(registrationForm.get('mobileNumber').errors) && ((registrationForm.get('mobileNumber').dirty || registrationForm.get('mobileNumber').touched))">
+            <div *ngIf="registrationForm.get('mobileNumber').hasError('required')">{{"reg_MOBR" | translate}}</div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
+
+
+    <div style="margin-top: 5%; text-align: center;">
+      <button type="submit" ion-button class="button">
+        {{ 'next' | translate }}
+      </button>
+    </div>
+  </form>
 
 </ion-content>
