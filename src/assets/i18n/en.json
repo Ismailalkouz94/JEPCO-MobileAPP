@@ -9,12 +9,12 @@
 "reg_name":"First name:",
 "reg_name1":"Family name:",
 "reg_MOB":"Mobile number:",
-"reg_ID":"ID number / National Number:",
+"reg_ID":"National Number:",
 "reg_fileNum":"File number:",
 "reg_nameR":"First name is required",
 "reg_name1R":"Family name is required",
 "reg_MOBR":"Mobile number is required",
-"reg_IDR":"ID number / National Number is required",
+"reg_IDR":"National Number is required",
 "reg_fileNumR":"File number is required",
 "reg_signUp":"Sign up",
 "h_Inquire":"Inquire about invoices",
@@ -106,7 +106,8 @@
 "data_one_week":"The data is updated for one week",
 "no_internet_connection":"No internet connection",
 "Jordan": "Jordanian",
-"Non_Jordan": "Non Jordanian"
-
+"Non_Jordan": "Non Jordanian",
+"id_number": "ID number",
+"id_number_required": "ID Number required"
 
 }
