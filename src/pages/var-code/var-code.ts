@@ -13,6 +13,7 @@ import { HomePage } from '../home/home';
 import { Storage } from '@ionic/storage';
 import { PublicVarProvider } from '../../providers/public-var/public-var';
 import { SelectAccountPage } from '../select-account/select-account';
+import { RegistrationPage } from '../registration/registration';
 
 
 /**
@@ -124,19 +125,15 @@ export class VarCodePage {
 
       this.loading.showLoading();
 
-      this.requestOptions.path = "profile/create";
+      this.requestOptions.path = "profile/verify";
 
       this.requestOptions.method = "POST";
 
-      this.vertifyForm.value.firstName = this.navParams.get('firstName');
-
-      this.vertifyForm.value.lastName = this.navParams.get('lastName');
-
       this.vertifyForm.value.nationalNumber = this.navParams.get('nationalNumber');
 
-      this.vertifyForm.value.fileNumber = this.navParams.get('fileNumber');
-
       this.vertifyForm.value.mobileNumber = this.navParams.get('mobileNumber');
+
+      this.vertifyForm.value.idType = this.navParams.get('idType');
 
       this.requestOptions.body = this.vertifyForm.value;
 
@@ -147,22 +144,15 @@ export class VarCodePage {
       if (response.status == 200) {
         this.loading.dismissLoading();
 
-        this.storage.set('flagNationalNumber', this.navParams.get('nationalNumber'));
-        // PublicVarProvider.setUser(response.json().body.customerSubAccountList[0]);
-        // PublicVarProvider.setProfile(response.json().body)  ;
-        // this.navCtrl.setRoot(HomePage);
-
-        if (response.json().body.customerSubAccountList.length > 1) {
-          PublicVarProvider.setProfile(response.json().body);
-          this.navCtrl.setRoot(SelectAccountPage);
-
-  
-        } else {
+        if (response.json().body) {
+          //go to home page
+          this.storage.set('flagNationalNumber', this.navParams.get('nationalNumber'));
           PublicVarProvider.setUser(response.json().body.customerSubAccountList[0]);
           PublicVarProvider.setProfile(response.json().body) 
           this.navCtrl.setRoot(HomePage);
-      
-        
+        }else{
+          //go to regsteration page
+          this.navCtrl.setRoot(RegistrationPage, this.vertifyForm.value);
         }
 
       } else {
