@@ -11,6 +11,7 @@ import { SliderPage } from '../pages/slider/slider';
 import { IonicStorageModule } from '@ionic/storage';
 import { PublicVarProvider } from '../providers/public-var/public-var';
 import { WelcomePage } from '../pages/welcome/welcome';
+import { StartRegisterPage } from '../pages/start-register/start-register';
 
 import { HttpModule } from '@angular/http';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -74,6 +75,7 @@ export function createTranslateLoader(http: HttpClient) {
     ImageModalPage,
     MapModalPage,
     CalculatorWithoutSubPage,
+    StartRegisterPage,
     TabsForCalcoulateComponent
   ],
   imports: [
@@ -119,6 +121,7 @@ export function createTranslateLoader(http: HttpClient) {
     ImageModalPage,
     MapModalPage,
     CalculatorWithoutSubPage,
+    StartRegisterPage,
     TabsForCalcoulateComponent
   ],
   providers: [
