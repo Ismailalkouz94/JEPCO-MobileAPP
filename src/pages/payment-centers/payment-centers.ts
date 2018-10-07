@@ -94,7 +94,7 @@ export class PaymentCentersPage {
 
 
   this.map.addMarkerSync({
-          title: this.centersList.name ,
+          title: this.centersList.hostName.name ,
           snippet: this.centersList.address,
           snippet1: this.centersList.phoneNumber,
           icon: 'Red',

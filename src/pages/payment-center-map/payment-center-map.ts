@@ -73,7 +73,7 @@ export class PaymentCenterMapPage {
       this.addMarker(updatelocation, image);
       for (let index = 0; index < this.centersList.length; index++) {
         let location = new google.maps.LatLng(this.centersList[index].latitude, this.centersList[index].longitude);
-        let title = this.centersList[index].name;
+        let title = this.centersList[index].hostName.name;
         let snippet = this.centersList[index].address;
         let snippet1 = this.centersList[index].phoneNumber;
         this.addMarkers(location , title , snippet , snippet1);
@@ -103,7 +103,7 @@ export class PaymentCenterMapPage {
         map: this.map,
       });
 
-      let content = "<h4 style='font-size: 1.5rem;line-height: 0;margin-bottom: 0px;'>"+title+"</h4><br/><h2 style='font-size: 1.3rem;line-height: 0;margin-top: 0px;margin-bottom: 0px;'>"+snippet+"</h2><br/><h2 style='color:red;font-size: 1.1rem;line-height: 0;margin-top: 0px;'>"+snippet1+"</h2>";
+      let content = "<h4 style='font-size: 1.5rem;line-height: 0;margin-bottom: 0px;'>"+title+"</h4><br/><h2 style='font-size: 1.3rem;line-height: 0;margin-top: 0px;margin-bottom: 0px;'>"+"</h2><br/><h2 style='color:red;font-size: 1.1rem;line-height: 0;margin-top: 0px;'>"+snippet1+"</h2>";
 
       this.addInfoWindow(marker, content);
     

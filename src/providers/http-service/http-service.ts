@@ -36,7 +36,7 @@ export class HttpServiceProvider {
       this.options.body = request_options.body;
     }
     this.path = request_options.path;
-    let http_response = await this.http.request('http://217.144.0.210:8085/JepcoMobApi/'
+    let http_response = await this.http.request('http://localhost:8085/jepco/'
     + this.path, this.options)
       // let http_response = await this.http.request('http://192.168.1.15:8080/JepcoMobApi/' +  this.path,  this.options)
       // let http_response = await this.http.request('http://212.118.22.172:8080/JepcoMobApi/' +  this.path,  this.options)
