@@ -24,12 +24,21 @@
     </ion-row>
   </div>
 
-  <div col-12 style="margin-top: 10px;margin-bottom: 5px">
-    <p class="fontt">{{ 'prevIvoices' | translate }}</p>
+  <ion-row radio-group>
+    <ion-col col-6>
+      <ion-label>{{ "Non-Paid" | translate }}</ion-label>
+      <ion-radio (ionSelect)="GetBills(1)" value="1"></ion-radio>
+    </ion-col>
+    <ion-col col-6>
+      <ion-label>{{ "Paid" | translate }}</ion-label>
+      <ion-radio (ionSelect)="GetBills(2)" value="2"></ion-radio>
+    </ion-col>
+  </ion-row>
+
+  <div col-12>
+    <!-- <p class="fontt">{{ 'prevIvoices' | translate }}</p> -->
     <p class="hintStyle">{{ 'data_one_week' | translate }}</p>
   </div>
-
-
 
   <div style="background-color:  #e6e6e6; margin-top: 2px" *ngFor="let bill of subscriber.bills">
 

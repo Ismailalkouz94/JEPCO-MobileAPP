@@ -47,7 +47,11 @@ page-previous-invoices {
     .hintStyle{
         text-align: center;
         display: block;
-        margin-top: 30px;
+        // margin-top: 30px;
         color: red;
+    }
+
+    .radio .radio-icon{
+        display: block;
     }
 }

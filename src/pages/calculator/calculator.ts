@@ -56,7 +56,7 @@ export class CalculatorPage {
 
     this.loading.showLoading();
 
-    this.requestOptions.path = "history/" + PublicVarProvider.getUser().fileNumber;
+    this.requestOptions.path = "subscriber/" + PublicVarProvider.getUser().fileNumber;
 
     this.requestOptions.method = "GET";
 

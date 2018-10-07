@@ -48,11 +48,11 @@ export class PreviousInvoicesPage {
   }
 
 
-  async GetBills() {
+  async GetBills(payFlag = null) {
 
     this.loading.showLoading();
 
-    this.requestOptions.path = "history/" + PublicVarProvider.getUser().fileNumber;
+    this.requestOptions.path = "history/" + PublicVarProvider.getUser().fileNumber + "/" + ((payFlag) ? (payFlag) : (0));
 
     this.requestOptions.method = "GET";
 
