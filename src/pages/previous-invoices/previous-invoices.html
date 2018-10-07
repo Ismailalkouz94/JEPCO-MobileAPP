@@ -27,14 +27,14 @@
   <ion-row radio-group>
     <ion-col col-6>
       <ion-item>
-        <ion-label>{{ "None_Payed" | translate }}</ion-label>
         <ion-radio (ionSelect)="GetBills(1)" value="1"></ion-radio>
+        <ion-label>{{ "None_Payed" | translate }}</ion-label>
       </ion-item>
     </ion-col>
     <ion-col col-6>
       <ion-item>
-        <ion-label>{{ "Payed" | translate }}</ion-label>
         <ion-radio (ionSelect)="GetBills(2)" value="2"></ion-radio>
+        <ion-label>{{ "Payed" | translate }}</ion-label>
       </ion-item>
     </ion-col>
   </ion-row>

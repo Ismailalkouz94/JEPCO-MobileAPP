@@ -27,4 +27,10 @@ page-var-code {
     font-size: calc(1vw + 4.9vmin);
     margin: 0;
   }
+
+  ion-input{
+    input{
+        text-align: center
+    }
+  }
 }
