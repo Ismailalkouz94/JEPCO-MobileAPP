@@ -31,11 +31,19 @@
       <ion-row>
         <ion-col>
           <ion-item>
-            <ion-label floating mode="md"> {{ 'reg_ID' | translate }}</ion-label>
+            <ion-label *ngIf="registrationForm.get('idType').value == '1'" floating mode="md"> {{ 'reg_ID' | translate }}</ion-label>
+            <ion-label *ngIf="registrationForm.get('idType').value == '2'" floating mode="md"> {{ 'id_number' | translate }}</ion-label>
             <ion-input type="tel" formControlName="nationalNumber" maxlength="10"></ion-input>
           </ion-item>
           <div class="error-message" *ngIf="(registrationForm.get('nationalNumber').errors) && ((registrationForm.get('nationalNumber').dirty || registrationForm.get('nationalNumber').touched))">
-            <div *ngIf="registrationForm.get('nationalNumber').hasError('required')">{{"reg_IDR" | translate}}</div>
+            <div *ngIf="registrationForm.get('nationalNumber').hasError('required')">
+                <div *ngIf="registrationForm.get('idType').value == '1'">
+                    {{"reg_IDR" | translate}}
+                </div>
+                <div *ngIf="registrationForm.get('idType').value == '2'">
+                    {{"id_number_required" | translate}}
+                </div>
+            </div>
           </div>
         </ion-col>
       </ion-row>
