@@ -57,10 +57,10 @@
       <ion-col col-4>
         <ng-container *ngIf="bill.payDate;then PAYED;else NONEPAYED"></ng-container>
         <ng-template #PAYED>
-          <p class="ppp">{{ "Payed" | translate }}</p>
+          <p class="ppp" style="color: green;">{{ "Payed" | translate }}</p>
         </ng-template>
         <ng-template #NONEPAYED>
-          <p class="ppp" style="color: #ad5c44;">{{ "None_Payed" | translate }}</p>
+          <p class="ppp" style="color: red;">{{ "None_Payed" | translate }}</p>
         </ng-template>
       </ion-col>
     </ion-row>

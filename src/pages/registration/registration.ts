@@ -86,7 +86,8 @@ export class RegistrationPage {
 
       this.requestOptions.method = "POST";
 
-      this.registrationForm.value.fileNumber = this.registrationForm.get('fileNum2').value + this.registrationForm.get('fileNum1').value + this.registrationForm.get('fileNum').value;
+      this.checkZerosInFileNumber(this.registrationForm);
+      // this.registrationForm.value.fileNumber = this.registrationForm.get('fileNum2').value + this.registrationForm.get('fileNum1').value + this.registrationForm.get('fileNum').value;
 
       this.registrationForm.value.nationalNumber = this.navParams.get('nationalNumber');
 
@@ -123,6 +124,24 @@ export class RegistrationPage {
 
     }
   }
+
+  checkZerosInFileNumber(registrationForm) {
+    let fileNum = registrationForm.get('fileNum').value;
+    let fileNum1 = registrationForm.get('fileNum1').value;
+    let fileNum2 = registrationForm.get('fileNum2').value;
+
+    if (registrationForm.get('fileNum2').value.length < 2) {
+      fileNum2 = '0' + registrationForm.get('fileNum2').value;
+    }
+    if (registrationForm.get('fileNum').value.length < 6) {
+      let zeros = '';
+      for (let i = 0; i < 6 - registrationForm.get('fileNum').value.length; i++) {
+        zeros += '0';
+      }
+      fileNum = zeros + registrationForm.get('fileNum').value;
+    }
+    this.registrationForm.value.fileNumber = fileNum2 + fileNum1 + fileNum;
+  };
 
   private markFormGroupTouched() {
     Object.keys(this.registrationForm.controls).forEach(key => {

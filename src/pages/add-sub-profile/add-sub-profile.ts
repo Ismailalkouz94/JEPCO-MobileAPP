@@ -34,7 +34,7 @@ export class AddSubProfilePage {
     body: ''
   };
 
-  constructor( private storage: Storage,private lang:LangServiceProvider, private alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams, private httpService: HttpServiceProvider , private loading:LoadingServiceProvider,private modalCtrl :ModalController) {
+  constructor(private storage: Storage, private lang: LangServiceProvider, private alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams, private httpService: HttpServiceProvider, private loading: LoadingServiceProvider, private modalCtrl: ModalController) {
     this.AddSubForm = new FormGroup({
       alias: new FormControl('', Validators.required),
       fileNum: new FormControl('', Validators.required),
@@ -60,15 +60,14 @@ export class AddSubProfilePage {
 
       this.requestOptions.method = "POST";
 
-      this.AddSubForm.value.fileNumber = this.AddSubForm.get('fileNum2').value + this.AddSubForm.get('fileNum1').value + this.AddSubForm.get('fileNum').value;
-      
+      this.checkZerosInFileNumber(this.AddSubForm);
+      // this.AddSubForm.value.fileNumber = this.AddSubForm.get('fileNum2').value + this.AddSubForm.get('fileNum1').value + this.AddSubForm.get('fileNum').value;
+
       this.AddSubForm.value.nationalNumber = await this.storage.get('flagNationalNumber').then(response => response);
-     
+
       this.requestOptions.body = this.AddSubForm.value;
 
       let response = await this.httpService.http_request(this.requestOptions);
-
-      console.log('response', response);
 
       if (response.status == 200) {
         // this.dismissLoading();
@@ -94,8 +93,26 @@ export class AddSubProfilePage {
   private markFormGroupTouched() {
     Object.keys(this.AddSubForm.controls).forEach(key => {
       this.AddSubForm.get(key).markAsDirty();
-    });  
+    });
   }
+
+  checkZerosInFileNumber(AddSubForm) {
+    let fileNum = AddSubForm.get('fileNum').value;
+    let fileNum1 = AddSubForm.get('fileNum1').value;
+    let fileNum2 = AddSubForm.get('fileNum2').value;
+
+    if (AddSubForm.get('fileNum2').value.length < 2) {
+      fileNum2 = '0' + AddSubForm.get('fileNum2').value;
+    }
+    if (AddSubForm.get('fileNum').value.length < 6) {
+      let zeros = '';
+      for (let i = 0; i < 6 - AddSubForm.get('fileNum').value.length; i++) {
+        zeros += '0';
+      }
+      fileNum = zeros + AddSubForm.get('fileNum').value;
+    }
+    this.AddSubForm.value.fileNumber = fileNum2 + fileNum1 + fileNum;
+  };
 
 
   openImage() {
@@ -104,11 +121,11 @@ export class AddSubProfilePage {
     imgModal.present();
   }
 
-  keytab(nextElement, maxLength , y , backElement) {
-    if(this.AddSubForm.get('fileNum'+y).value.length == maxLength)
-    nextElement.setFocus();   // focus if not null
-    if(this.AddSubForm.get('fileNum'+y).value.length==0)
-    backElement.setFocus();
-}
+  keytab(nextElement, maxLength, y, backElement) {
+    if (this.AddSubForm.get('fileNum' + y).value.length == maxLength)
+      nextElement.setFocus();   // focus if not null
+    if (this.AddSubForm.get('fileNum' + y).value.length == 0)
+      backElement.setFocus();
+  }
 
 }
