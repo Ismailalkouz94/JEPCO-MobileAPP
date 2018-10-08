@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { ImageModalPage } from '../../pages/imageModal/imageModal';
+import { EfawatercomPayPage } from '../../pages/efawatercom-pay/efawatercom-pay'
 
 /**
  * Generated class for the PaymentMethodPage page.
@@ -25,7 +26,11 @@ export class PaymentMethodPage {
 
   openImage() {
     let imgModal = this.modalCtrl.create(ImageModalPage);
+    imgModal.present();
+  }
 
+  openEfawatercomImage(){
+    let imgModal = this.modalCtrl.create(EfawatercomPayPage);
     imgModal.present();
   }
 

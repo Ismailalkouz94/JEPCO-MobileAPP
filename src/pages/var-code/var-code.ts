@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, AlertController, MenuController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController, MenuController, Platform } from 'ionic-angular';
 import { Observable } from "rxjs/Observable";
 import { Validators, FormGroup, FormControl } from '@angular/forms';
 import "rxjs/add/observable/timer";
@@ -14,6 +14,7 @@ import { Storage } from '@ionic/storage';
 import { PublicVarProvider } from '../../providers/public-var/public-var';
 import { SelectAccountPage } from '../select-account/select-account';
 import { RegistrationPage } from '../registration/registration';
+import { AndroidPermissions } from '@ionic-native/android-permissions';
 
 
 /**
@@ -22,6 +23,7 @@ import { RegistrationPage } from '../registration/registration';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+declare var SMS: any;
 
 @IonicPage()
 @Component({
@@ -41,7 +43,18 @@ export class VarCodePage {
 
   countdown: number;
 
-  constructor(public loadingCtrl: LoadingController, private alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, /*private storage: Storage,*/ private httpService: HttpServiceProvider, private loading: LoadingServiceProvider, private lang: LangServiceProvider , private storage: Storage) {
+  constructor(public loadingCtrl: LoadingController,
+    private alertCtrl: AlertController,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public menuCtrl: MenuController,
+    /*private storage: Storage,*/
+    private httpService: HttpServiceProvider,
+    private loading: LoadingServiceProvider,
+    private lang: LangServiceProvider,
+    private storage: Storage,
+    public androidPermissions: AndroidPermissions,
+    public platform: Platform) {
     this.startCountdownTimer();
 
     this.vertifyForm = new FormGroup({
@@ -68,8 +81,6 @@ export class VarCodePage {
       .map(value => duration - value * interval);
     stream$.subscribe(value => this.countdown = value / 1000);
   }
-
-
 
   async resendCode() {
 
@@ -148,9 +159,9 @@ export class VarCodePage {
           //go to home page
           this.storage.set('flagNationalNumber', this.navParams.get('nationalNumber'));
           PublicVarProvider.setUser(response.json().body.customerSubAccountList[0]);
-          PublicVarProvider.setProfile(response.json().body) 
+          PublicVarProvider.setProfile(response.json().body)
           this.navCtrl.setRoot(HomePage);
-        }else{
+        } else {
           //go to regsteration page
           this.navCtrl.setRoot(RegistrationPage, this.vertifyForm.value);
         }
@@ -173,7 +184,36 @@ export class VarCodePage {
   private markFormGroupTouched() {
     Object.keys(this.vertifyForm.controls).forEach(key => {
       this.vertifyForm.get(key).markAsDirty();
-    });  
+    });
+  }
+
+  ionViewWillEnter() {
+
+    this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.READ_SMS).then(
+       
+      err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.READ_SMS)
+    );
+
+    this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.READ_SMS]);
+
+    this.ReadSMS();
+
+  }
+
+  ReadSMS() {
+    this.platform.ready().then((readySource) => {
+
+      if (SMS) SMS.startWatch(() => {
+        console.log('watching started');
+      }, Error => {
+        console.log('failed to start watching');
+      });
+
+      document.addEventListener('onSMSArrive', (e: any) => {
+        var sms = e.data;
+        this.vertifyForm.get('code').setValue(sms.body.substring(20,24));
+      });
+    });
   }
 
 }

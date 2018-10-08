@@ -45,6 +45,8 @@ import { MapModalPage } from '../pages/map-modal/map-modal';
 import { CalculatorWithoutSubPage } from '../pages/calculator-without-sub/calculator-without-sub';
 import { TabsForCalcoulateComponent } from '../components/tabs-for-calcoulate/tabs-for-calcoulate';
 import { Network } from '@ionic-native/network';
+import { EfawatercomPayPage } from '../pages/efawatercom-pay/efawatercom-pay'
+import { AndroidPermissions} from '@ionic-native/android-permissions';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -76,15 +78,16 @@ export function createTranslateLoader(http: HttpClient) {
     MapModalPage,
     CalculatorWithoutSubPage,
     StartRegisterPage,
+    EfawatercomPayPage,
     TabsForCalcoulateComponent
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp, {
-      backButtonIcon:"md-arrow-back",
+      backButtonIcon: "md-arrow-back",
       backButtonText: '',
-      scrollAssist:false,
-      autoFocusAssist:false
+      scrollAssist: false,
+      autoFocusAssist: false
     }),
     IonicStorageModule.forRoot(),
     TranslateModule.forRoot({
@@ -122,6 +125,7 @@ export function createTranslateLoader(http: HttpClient) {
     MapModalPage,
     CalculatorWithoutSubPage,
     StartRegisterPage,
+    EfawatercomPayPage,
     TabsForCalcoulateComponent
   ],
   providers: [
@@ -138,9 +142,10 @@ export function createTranslateLoader(http: HttpClient) {
     LangServiceProvider,
     TipsServiceProvider,
     Network,
+    AndroidPermissions,
     Geolocation
-    
-    
+
+
   ]
 })
 export class AppModule { }
