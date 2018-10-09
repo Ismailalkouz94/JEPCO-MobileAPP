@@ -204,14 +204,16 @@ export class VarCodePage {
     this.platform.ready().then((readySource) => {
 
       if (SMS) SMS.startWatch(() => {
-        console.log('watching started');
+
       }, Error => {
-        console.log('failed to start watching');
+
       });
 
       document.addEventListener('onSMSArrive', (e: any) => {
         var sms = e.data;
-        this.vertifyForm.get('code').setValue(sms.body.substring(20,24));
+        if(sms.address == "JEPCO"){
+          this.vertifyForm.get('code').setValue(sms.body.substring(20,24));
+        }
       });
     });
   }
