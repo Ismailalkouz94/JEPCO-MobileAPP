@@ -190,7 +190,7 @@ export class VarCodePage {
   ionViewWillEnter() {
 
     this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.READ_SMS).then(
-       
+
       err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.READ_SMS)
     );
 
@@ -211,8 +211,8 @@ export class VarCodePage {
 
       document.addEventListener('onSMSArrive', (e: any) => {
         var sms = e.data;
-        if(sms.address == "JEPCO"){
-          this.vertifyForm.get('code').setValue(sms.body.substring(20,24));
+        if (sms.address == "JEPCO") {
+          this.vertifyForm.get('code').setValue(sms.body.substring(20, 24));
         }
       });
     });
