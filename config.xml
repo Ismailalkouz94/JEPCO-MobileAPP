@@ -98,7 +98,7 @@
     <allow-navigation href="http://172.28.144.161:8100" />
     <allow-navigation href="http://192.168.1.154:8100" />
     <config-file parent="NSLocationWhenInUseUsageDescription" platform="ios" target="*-Info.plist">
-        <string>This app requires access to your location.</string>
+        <string>JEPCO app wants to access your location, this is for providing you with accurate locations of JEPCO payment centers </string>
     </config-file>
     <plugin name="cordova-plugin-android-permissions" spec="^1.0.0" />
     <plugin name="cordova-plugin-sms" spec="^1.0.5" />
