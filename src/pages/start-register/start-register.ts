@@ -23,6 +23,7 @@ import { ImageModalPage } from '../../pages/imageModal/imageModal';
   templateUrl: 'start-register.html',
 })
 export class StartRegisterPage {
+  irfFlaq: any;
 
   registrationForm: FormGroup;
 
@@ -36,6 +37,7 @@ export class StartRegisterPage {
 
   constructor(public loadingCtrl: LoadingController, private alertCtrl: AlertController, platform: Platform, public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, private storage: Storage, private httpService: HttpServiceProvider, private loading: LoadingServiceProvider, private lang: LangServiceProvider, private modalCtrl: ModalController) {
     this.menuCtrl.enable(false, 'myMenu');
+
     this.registrationForm = new FormGroup({
       mobileNumber: new FormControl('', Validators.required),
       nationalNumber: new FormControl('', Validators.required),
@@ -61,7 +63,22 @@ export class StartRegisterPage {
 
   }
 
-  ionViewDidLoad() {
+  async loadForm() {
+    this.requestOptions.path = "irf"
+    this.requestOptions.method = "GET"
+    let response = await this.httpService.http_request(this.requestOptions);
+    if (response.status == 200) {
+      this.irfFlaq = response.json().body;
+      if (this.irfFlaq == 0) {
+        this.registrationForm.removeControl("nationalNumber");
+        this.registrationForm.addControl("nationalNumber", new FormControl(''));
+      }
+    }
+
+  }
+
+  async ionViewDidLoad() {
+    await this.loadForm();
     console.log('ionViewDidLoad RegistrationPage');
   }
   ToHomePage() {
@@ -82,6 +99,13 @@ export class StartRegisterPage {
       this.requestOptions.path = "sms/send";
 
       this.requestOptions.method = "POST";
+
+      if (this.registrationForm.get('nationalNumber').value.length > 0) {
+
+      } else {
+        if (this.irfFlaq == "0")
+          this.registrationForm.get('nationalNumber').setValue("9941038190")
+      }
 
       // this.registrationForm.value.idType = Number(this.registrationForm.get('idType').value);
 
@@ -114,7 +138,7 @@ export class StartRegisterPage {
   private markFormGroupTouched() {
     Object.keys(this.registrationForm.controls).forEach(key => {
       this.registrationForm.get(key).markAsDirty();
-    });    
+    });
     // (<any>Object).values(this.registrationForm.controls).forEach(control => {
     //   control.markAsTouched();
     // });
@@ -145,10 +169,10 @@ export class StartRegisterPage {
   // }
 
 
-  keytab(nextElement, maxLength , y , backElement) {
-      if(this.registrationForm.get('fileNum'+y).value.length == maxLength)
+  keytab(nextElement, maxLength, y, backElement) {
+    if (this.registrationForm.get('fileNum' + y).value.length == maxLength)
       nextElement.setFocus();   // focus if not null
-      if(this.registrationForm.get('fileNum'+y).value.length==0)
+    if (this.registrationForm.get('fileNum' + y).value.length == 0)
       backElement.setFocus();
   }
 

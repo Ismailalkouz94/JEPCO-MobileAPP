@@ -190,24 +190,22 @@ export class VarCodePage {
   ionViewWillEnter() {
 
     this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.READ_SMS).then(
-
+      
       err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.READ_SMS)
     );
 
     this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.READ_SMS]);
-
-    this.ReadSMS();
+    this.ReadSMS()
 
   }
 
   ReadSMS() {
-    this.platform.ready().then((readySource) => {
 
-      if (SMS) SMS.startWatch(() => {
+      // if (SMS) SMS.startWatch(() => {
 
-      }, Error => {
+      // }, Error => {
 
-      });
+      // });
 
       document.addEventListener('onSMSArrive', (e: any) => {
         var sms = e.data;
@@ -215,7 +213,6 @@ export class VarCodePage {
           this.vertifyForm.get('code').setValue(sms.body.substring(20, 24));
         }
       });
-    });
   }
 
 }
